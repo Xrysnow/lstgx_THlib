@@ -125,7 +125,8 @@ end
 ---具有过渡效果的图片
 ---大小和颜色逐渐变化
 ---会按一定速度移动
-bubble2 = Class(object)
+bubble2 = xclass(object)
+--bubble2 = Class(object)
 
 function bubble2:init(img, x, y, vx, vy, life_time, size1, size2, color1, color2, layer, blend)
     self.img = img
@@ -143,19 +144,25 @@ function bubble2:init(img, x, y, vx, vy, life_time, size1, size2, color1, color2
     self.blend = blend or ''
 end
 
-function bubble2:render()
-    local t = (self.life_time - self.timer) / self.life_time
-    local size = self.size1 * t + self.size2 * (1 - t)
-    local c = self.color1 * t + self.color2 * (1 - t)
-    SetImageState(self.img, self.blend, c)
-    Render(self.img, self.x, self.y, 0, size)
-end
-
 function bubble2:frame()
     if self.timer == self.life_time - 1 then
         Del(self)
     end
+    local t = (self.life_time - self.timer) / self.life_time
+    local size = self.size1 * t + self.size2 * (1 - t)
+    local c = self.color1 * t + self.color2 * (1 - t)
+    self.color = c
+    self.hscale = size
+    self.vscale = size
 end
+
+--function bubble2:render()
+--    local t = (self.life_time - self.timer) / self.life_time
+--    local size = self.size1 * t + self.size2 * (1 - t)
+--    local c = self.color1 * t + self.color2 * (1 - t)
+--    SetImageState(self.img, self.blend, c)
+--    Render(self.img, self.x, self.y, 0, size)
+--end
 
 ---浮动文字
 ---大小和颜色逐渐变化

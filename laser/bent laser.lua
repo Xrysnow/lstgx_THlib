@@ -43,6 +43,7 @@ function laser_bent:init(index, x, y, l, w, sample, node)
     self.w = w
     self.group = GROUP_INDES
     self.layer = LAYER_ENEMY_BULLET
+    ---@type lstg.GameObjectBentLaser
     self.data = BentLaserData()
     self.bound = false
     self._bound = true
@@ -94,6 +95,7 @@ function laser_bent:frame()
             self.listx[(self.timer / 4) % _l] = self.x
             self.listy[(self.timer / 4) % _l] = self.y
         end
+        --self.data:setColorMode(2,1)
         --local color = Color(255,
         --        (cos(self.timer * 5) / 2 + 0.5) * 255,
         --        (cos(self.timer * 5 + 120) / 2 + 0.5) * 255,

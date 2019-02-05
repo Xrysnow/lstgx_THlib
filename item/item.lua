@@ -224,32 +224,37 @@ function item_faith:collect()
     ---var.score=var.score+10000
 end
 
+local item8 = FindResSprite('item8')
 ---绿点（小）
 ---@class item_faith_minor:object
 item_faith_minor = Class(object)
 function item_faith_minor:init(x, y)
     self.x = x
     self.y = y
-    --self.img = 'item' .. 8
-    self.img = 'item8'
-    self.group = GROUP_ITEM
-    self.layer = LAYER_ITEM
     local w = lstg.world
-    if not BoxCheck(self, w.l, w.r, w.b, w.t) then
-        RawDel(self)
-    end
     self.vx = ran:Float(-0.15, 0.15)
     self._vy = ran:Float(3.25, 3.75)
-    self.bound = false
-    rawset(self, 'flag', 1)
-    rawset(self, 'attract', 0)
-    --self.flag = 1
-    --self.attract = 0
+    if not BoxCheck(self, w.l, w.r, w.b, w.t) then
+        RawDel(self)
+    else
+        self.img = item8
+        self.group = GROUP_ITEM
+        self.layer = LAYER_ITEM
+        self.bound = false
+        rawset(self, 'flag', 1)
+        rawset(self, 'attract', 0)
+        --self.flag = 1
+        --self.attract = 0
+    end
 end
 function item_faith_minor:frame()
+    if self.status == 'del' then
+        return
+    end
     ---刚刚Miss时不能收点
     local timer = self.timer
-    if player.death > 80 and player.death < 90 then
+    local death = player.death
+    if death > 80 and death < 90 then
         self.flag = 0
         self.attract = 0
     end
@@ -262,11 +267,12 @@ function item_faith_minor:frame()
         SetV(self, 8, Angle(self, player))
     end
     if timer >= 54 and self.flag == 0 then
-        if self.attract > 0 then
+        local attract = self.attract
+        if attract > 0 then
             ---被自机吸引
             local a = Angle(self, player)
-            self.vx = self.attract * cos(a) + player.dx * 0.5
-            self.vy = self.attract * sin(a) + player.dy * 0.5
+            self.vx = attract * cos(a) + player.dx * 0.5
+            self.vy = attract * sin(a) + player.dy * 0.5
         else
             ---加速度向下
             self.vy = max(self.dy - 0.03, -2.5)
@@ -277,19 +283,21 @@ function item_faith_minor:frame()
         end
     end
 end
-function item_faith_minor:colli(other)
-    if other == player then
-        if self.class.collect then
-            self.class.collect(self)
-        end
-        Kill(self)
-        PlaySound('item00', 0.3, self.x / 200)
-    end
-end
 function item_faith_minor:collect()
     local var = lstg.var
     var.faith = var.faith + 10
     var.score = var.score + 500
+end
+local _item_faith_minor_collect = item_faith_minor.collect
+function item_faith_minor:colli(other)
+    if other == player then
+        --if self.class.collect then
+        --    self.class.collect(self)
+        --end
+        _item_faith_minor_collect(self)
+        Kill(self)
+        PlaySound('item00', 0.3, self.x / 200)
+    end
 end
 
 ---蓝点

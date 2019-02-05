@@ -272,7 +272,7 @@ function reimu_sp_ef2:init(x, y, v, angle, scale, index)
     self.vscale = scale
     self.rbg = { { 255, 0, 0 }, { 0, 255, 0 }, { 0, 0, 255 } }
     self.index = index
-    --	ParticleSetEmission(self,10)
+    --ParticleSetEmission(self,10)
 end
 
 function reimu_sp_ef2:frame()

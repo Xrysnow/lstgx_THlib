@@ -288,6 +288,8 @@ function bullet:init(imgclass, index, stay, destroyable)
         self.layer = LAYER_ENEMY_BULLET_EF - imgclass.size * 0.001 + index * 0.00001
         self._index = index
         self.index = int((index + 1) / 2)
+        self._preimg = FindResSprite('preimg' .. self.index)
+        assert(self._preimg)
     end
     imgclass.init(self, index)
 
@@ -301,13 +303,18 @@ bullet.frame = task.Do
 
 function bullet:kill()
     local x, y = GetAttr(self, 'x'), GetAttr(self, 'y')
-    ---产生绿点（小）和消弹效果
-    New(item_faith_minor, x, y)
     local w = lstg.world
     local _index = rawget(self, '_index')
-    if _index and BoxCheck(self, w.boundl, w.boundr, w.boundb, w.boundt) then
-        New(BulletBreak, x, y, _index)
-    end
+    local eff = _index and BoxCheck(self, w.boundl, w.boundr, w.boundb, w.boundt)
+    -- 产生绿点（小）和消弹效果
+    task.New(stage.current_stage, function()
+        New(item_faith_minor, x, y)
+        task.Wait(1)
+        if eff then
+            New(BulletBreak, x, y, _index)
+        end
+    end)
+
     local imgclass = rawget(self, 'imgclass')
     if imgclass.size == 2.0 then
         imgclass.del(self)
@@ -378,12 +385,25 @@ function img_class:del()
         self.imgclass.size, 0, bubble_color, bubble_color, self.layer, 'mul+add')
 end
 
-local img_class_del = img_class.del
+--local img_class_del = img_class.del
 function img_class:kill()
     --产生收缩效果，消弹效果和一个绿点（小）
-    img_class_del(self)
-    New(BulletBreak, self.x, self.y, self._index)
-    New(item_faith_minor, self.x, self.y)
+    --img_class_del(self)
+    --New(BulletBreak, self.x, self.y, self._index)
+    --New(item_faith_minor, self.x, self.y)
+    --
+    local param = {
+        self._preimg, self.x, self.y, self.dx, self.dy, 11,
+        self.imgclass.size, 0, bubble_color, bubble_color, self.layer, 'mul+add' }
+    local x, y = self.x, self.y
+    local _index = self._index
+    task.New(stage.current_stage, function()
+        New(bubble2, unpack(param))
+        task.Wait(1)
+        New(BulletBreak, x, y, _index)
+        task.Wait(1)
+        New(item_faith_minor, x, y)
+    end)
 end
 
 function img_class:render()
@@ -858,7 +878,6 @@ function bullet_killer_SP:init(x, y, kill_indes)
     self.img = 'yubi'
 end
 function bullet_killer_SP:frame()
-
     self.rot = -6 * self.timer
     if self.timer == 60 then
         Del(self)
@@ -924,9 +943,9 @@ function bomb_bullet_killer:init(x, y, a, b, kill_indes)
 end
 function bomb_bullet_killer:frame()
     ---只存在1帧
-    if self.timer == 1 then
-        Del(self)
-    end
+    --if self.timer == 1 then
+    Del(self)
+    --end
 end
 function bomb_bullet_killer:colli(other)
     local group = GetAttr(other, 'group')
