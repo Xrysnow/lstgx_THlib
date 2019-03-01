@@ -23,6 +23,51 @@ function background:render()
     RenderClear(Color(0x00000000))
 end
 
+local RENDER_BUFFER_NAME = "_boss_distortion_render_buffer"
+local WARP_EFFECT_NAME = "boss_distortion"
+LoadFX(WARP_EFFECT_NAME, 'shader/boss_distortion.fx')
+CreateRenderTarget(RENDER_BUFFER_NAME)
+SetShaderUniform('boss_distortion', {
+    centerX   = 100.0,
+    centerY   = 100.0,
+    size      = 50.0,
+    arg       = 25.0,
+    color     = Color(255, 163, 73, 164),
+    colorsize = 80.0,
+    timer     = 0.0,
+})
+
+---开始捕获用于执行扭曲特效的画面
+function background.WarpEffectCapture()
+    if IsValid(_boss) then
+        PushRenderTarget(RENDER_BUFFER_NAME)
+        --RenderClear(Color(0, 0, 0, 0))
+    end
+end
+
+---停止捕获用于执行扭曲特效的画面并应用扭曲特效、绘制出来
+function background.WarpEffectApply()
+    if IsValid(_boss) then
+        PopRenderTarget(RENDER_BUFFER_NAME)
+        --local x, y = WorldToScreen(_boss.x, _boss.y)
+        --local x1 = x * screen.scale
+        --local y1 = (screen.height - y) * screen.scale
+        local x1, y1 = WorldToGame(_boss.x, _boss.y, true)
+        local fxr = _boss.fxr or 163
+        local fxg = _boss.fxg or 73
+        local fxb = _boss.fxb or 164
+        PostEffect(RENDER_BUFFER_NAME, WARP_EFFECT_NAME, "", {
+            centerX   = x1,
+            centerY   = y1,
+            size      = _boss.aura_alpha * 200 * lstg.scale_3d,
+            color     = Color(125, fxr, fxg, fxb),
+            colorsize = _boss.aura_alpha * 200 * lstg.scale_3d,
+            arg       = 1500 * _boss.aura_alpha / 128 * lstg.scale_3d,
+            timer     = _boss.timer
+        })
+    end
+end
+
 ---调试使用的辅助功能
 ---显示菜单，能够调整3D参数
 camera_setter = Class(object)
@@ -201,17 +246,8 @@ function camera_setter:render()
     end
     SetViewMode 'world'
 end
-LoadFX('boss_distortion', 'shader/boss_distortion.fx')
-SetShaderUniform('boss_distortion', {
-    centerX   = 100.0,
-    centerY   = 100.0,
-    size      = 50.0,
-    arg       = 25.0,
-    color     = Color(255, 163, 73, 164),
-    colorsize = 80.0,
-    timer     = 0.0,
-})
 
+--[[
 Include 'THlib/background/ball/ball.lua'
 Include 'THlib/background/bamboo/bamboo.lua'
 Include 'THlib/background/bamboo2/bamboo2.lua'
@@ -240,3 +276,6 @@ Include 'THlib/background/woods/woods.lua'
 Include 'THlib/background/le03_5/le03_5.lua'
 Include 'THlib/background/galaxy/galaxy.lua'
 Include 'THlib/background/tkz_stage3/stage3bg.lua'
+]]
+
+Include 'THlib/background/background_addon.lua'
