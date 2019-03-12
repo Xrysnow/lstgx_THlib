@@ -3,7 +3,8 @@
 local REPLAY_DIR = "replay"
 local REPLAY_SUB_DIR = REPLAY_DIR .. '/' .. setting.mod
 if plus.isMobile() then
-    REPLAY_DIR = cc.FileUtils:getInstance():getWritablePath() .. "replay"
+    --REPLAY_DIR = cc.FileUtils:getInstance():getWritablePath() .. "replay"
+    REPLAY_DIR = plus.getWritablePath() .. "replay"
     REPLAY_SUB_DIR = REPLAY_DIR .. '/' .. setting.mod
 end
 
@@ -67,11 +68,16 @@ function ext_replay.SaveReplay(stageNames, slot, playerName, finish)
     end
 
     -- TODO: gameName和gameVersion可以被用来检查录像文件的合法性
-    plus.ReplayManager.SaveReplayInfo(replayManager:MakeReplayFilename(slot),
+    plus.ReplayManager.SaveReplayInfo(
+            replayManager:MakeReplayFilename(slot),
             {
-                gameName = setting.mod, gameVersion = 1, userName = playerName, group_finish = finish,
-                stages   = stages
-            })
+                gameName     = setting.mod,
+                gameVersion  = 1,
+                userName     = playerName,
+                group_finish = finish,
+                stages       = stages
+            }
+    )
 end
 
 function ext_replay.beforeSet()
@@ -99,7 +105,7 @@ function ext_replay.beforeLoad()
     replayStageIdx = 0
 end
 
-function ext_replay.onLoad(path,stageName)
+function ext_replay.onLoad(path, stageName)
     if path ~= replayFilename then
         replayFilename = path
         replayInfo = plus.ReplayManager.ReadReplayInfo(path)  -- 重新读取录像信息以保证准确性
