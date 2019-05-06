@@ -1,5 +1,11 @@
 gamecontinueflag = false
 
+---@class THlib.ext
+---@field replay THlib.ext.Replay
+---@field mask_color lstg.Color
+---@field mask_alph table
+---@field mask_x table
+---@field pause_menu_text table
 ext = { replay = {} }
 
 ext.mask_color = Color(0, 255, 255, 255)
@@ -22,10 +28,12 @@ local e = lstg.eventDispatcher
 
 --------------------------------------------------------------------------------
 
----实现录像系统
----当mode = none时，参数stage用于表明下一个跳转的场景
----当mode = load时，参数path有效，指明从path录像文件中加载场景stage的录像数据
----当mode = save时，参数path无效，使用stage指定场景名称并开始录像
+
+--实现录像系统
+--当mode = none时，参数stage用于表明下一个跳转的场景
+--当mode = load时，参数path有效，指明从path录像文件中加载场景stage的录像数据
+--当mode = save时，参数path无效，使用stage指定场景名称并开始录像
+
 e:addListener('onStageSet', function(param)
     local mode, path, stageName = param[1], param[2], param[3]
     ext.pause_menu_order = nil

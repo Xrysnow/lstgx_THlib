@@ -2,6 +2,7 @@
 ---data/Thlib/menu.lua
 ---comment by Xrysnow
 
+---@class THlib.menu 菜单
 menu = {}
 
 ---菜单飞入
@@ -72,7 +73,8 @@ function menu:MoveTo(x1, y1, x2, y2, t, mode)
     end)
 end
 
---符卡练习菜单
+---
+---@class THlib.sc_pr_menu:object 符卡练习菜单
 sc_pr_menu = Class(object)
 
 function sc_pr_menu:init(exit_func)
@@ -150,9 +152,9 @@ function sc_pr_menu:render()
     --	SetViewMode('ui')
     SetImageState('white', '', Color(0xC0000000))
     RenderRect('white', self.x - ui.menu.sc_pr_width * 0.5 - ui.menu.sc_pr_margin,
-            self.x + ui.menu.sc_pr_width * 0.5 + ui.menu.sc_pr_margin,
-            self.y - ui.menu.sc_pr_line_height * (ui.menu.sc_pr_line_per_page + 2) * 0.5 - ui.menu.sc_pr_margin,
-            self.y + ui.menu.sc_pr_line_height * (ui.menu.sc_pr_line_per_page + 2) * 0.5 + ui.menu.sc_pr_margin)
+               self.x + ui.menu.sc_pr_width * 0.5 + ui.menu.sc_pr_margin,
+               self.y - ui.menu.sc_pr_line_height * (ui.menu.sc_pr_line_per_page + 2) * 0.5 - ui.menu.sc_pr_margin,
+               self.y + ui.menu.sc_pr_line_height * (ui.menu.sc_pr_line_per_page + 2) * 0.5 + ui.menu.sc_pr_margin)
     local text1 = {}
     local text2 = {}
     local offset = self.page * ui.menu.sc_pr_line_per_page
@@ -171,6 +173,8 @@ function sc_pr_menu:render()
     RenderTTF('sc_pr', string.format('<-  page %d/%d  ->', self.page + 1, self.npage), self.x, self.x, self.y - (ui.menu.sc_pr_line_per_page + 1) * ui.menu.sc_pr_line_height * 0.5, self.y - (ui.menu.sc_pr_line_per_page + 1) * ui.menu.sc_pr_line_height * 0.5, Color(self.alpha * 255, unpack(ui.menu.title_color)), 'centerpoint')
 end
 
+---
+---@class THlib.simple_menu:object
 simple_menu = Class(object)
 
 function simple_menu:init(title, content)
@@ -233,6 +237,8 @@ function simple_menu:render()
     ui.DrawMenu(self.title, self.text, self.pos, self.x, self.y, self.alpha, self.timer, self.pos_changed)
 end
 
+---
+---@class THlib.simple_image:object
 simple_image = Class(object)
 function simple_image:init(img, size)
     self.layer = LAYER_TOP
@@ -314,6 +320,7 @@ local function FetchReplaySlots()
 end
 
 ------------------replay_saver-------------------------
+
 local _keyboard = {}
 do
     for i = 65, 90 do
@@ -355,6 +362,8 @@ do
     table.insert(_keyboard, 34)
 end
 
+---
+---@class THlib.replay_saver:object
 replay_saver = Class(object)
 
 function replay_saver:init(stages, finish, exitCallback)
@@ -543,6 +552,9 @@ function replay_saver:render()
 end
 ----------------------------------------------------------------------------
 -------------------------replay_loader--------------------------------------
+
+---
+---@class THlib.replay_loader:object
 replay_loader = Class(object)
 
 function replay_loader:init(exitCallback)

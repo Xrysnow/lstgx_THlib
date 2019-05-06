@@ -44,7 +44,7 @@ LoadLaserTexture('laser4', 1, 254, 1)-->laser41~laser43
 --发弹源图像
 LoadImageGroup('laser_node', 'bullet1', 80, 0, 32, 32, 1, 8)
 
----@class laser:object
+---@class THlib.laser:object
 laser = Class(object)
 
 function laser:init(index, x, y, rot, l1, l2, l3, w, node, head)
@@ -362,7 +362,45 @@ function laser:TurnOff(t)
     self.dw = -self.w / t
 end
 
+function laser:_TurnOn(t, sound, wait)
+    t = t or 30
+    t = max(1, int(t))
+    if sound then
+        PlaySound('lazer00', 0.25, self.x / 200)
+    end
+    self.counter = t
+    self.da = (1 - self.alpha) / t
+    self.dw = (self.w0 - self.w) / t
+    if task.GetSelf() == self and wait then
+        task.Wait(t)
+    end
+end
+
+function laser:_TurnHalfOn(t, wait)
+    t = t or 30
+    t = max(1, int(t))
+    self.counter = t
+    self.da = (0.5 - self.alpha) / t
+    self.dw = (0.5 * self.w0 - self.w) / t
+    if task.GetSelf() == self and wait then
+        task.Wait(t)
+    end
+end
+
+function laser:_TurnOff(t, wait)
+    t = t or 30
+    t = max(1, int(t))
+    self.counter = t
+    self.da = -self.alpha / t
+    self.dw = -self.w / t
+    if task.GetSelf() == self and wait then
+        task.Wait(t)
+    end
+end
+
+---@class THlib.laser_death_ef:THlib.laser
 laser_death_ef = Class(laser)
+
 function laser_death_ef:frame()
     task.Do(self)
 end

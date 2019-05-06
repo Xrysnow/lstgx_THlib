@@ -1,6 +1,7 @@
 --
 
----背景类（基类）
+---
+---@class THlib.background:object 背景类基类
 background = Class(object)
 
 function background:init(is_sc_bg)
@@ -68,8 +69,9 @@ function background.WarpEffectApply()
     end
 end
 
----调试使用的辅助功能
----显示菜单，能够调整3D参数
+--- 显示菜单，能够调整3D参数
+--- 调试使用的辅助功能
+---@class THlib.camera_setter:object
 camera_setter = Class(object)
 
 function camera_setter:init()

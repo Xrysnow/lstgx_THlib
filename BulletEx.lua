@@ -33,6 +33,7 @@ POLAR = "polar"
 clockwise = true
 anticlockwise = false
 
+---@class THlib.shooter:THlib.bullet
 shooter = Class(bullet)
 local shooter = shooter
 
@@ -111,19 +112,19 @@ function shooter:_frame()
     if self.through then
         local world = lstg.world
         if self.y > world.t then
-            self.y = self.y - (world.t-world.b)
+            self.y = self.y - (world.t - world.b)
             self.through = nil
         end
         if self.y < world.b then
-            self.y = self.y + (world.t-world.b)
+            self.y = self.y + (world.t - world.b)
             self.through = nil
         end
         if self.x > world.r then
-            self.x = self.x - (world.r-world.l)
+            self.x = self.x - (world.r - world.l)
             self.through = nil
         end
         if self.x < world.l then
-            self.x = self.x + (world.r-world.l)
+            self.x = self.x + (world.r - world.l)
             self.through = nil
         end
     end
@@ -238,6 +239,7 @@ function shooter:read(data)
     switch[data[1]](unpack(data, 2))
 end
 
+---@class THlib.bent_laser_shooter:THlib.laser_bent
 bent_laser_shooter = Class(laser_bent)
 
 function bent_laser_shooter:init(color, x, y, l, w, v, angle, accel, env, other)
@@ -250,6 +252,7 @@ function bent_laser_shooter:frame()
     laser_bent.frame(self)
 end
 
+---@class THlib.laser_shooter:THlib.laser
 laser_shooter = Class(laser)
 
 function laser_shooter:init(color, x, y, l1, l2, l3, w, node, v, angle, accel, env, other)

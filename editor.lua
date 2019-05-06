@@ -42,6 +42,7 @@ local bullet = bullet
 local bullet_frame = bullet.frame
 local straight_495 = straight_495
 
+---@class THlib._straight:THlib.bullet
 _straight = Class(bullet)
 function _straight:init(imgclass, index, x, y, v, angle, aim, omiga,
                         stay, destroyable, time, _495, accel, accangle, maxv, through)
@@ -215,6 +216,7 @@ function _stop_music()
     end
 end
 
+---@class THlib._object:object
 _object = Class(object)
 --_object = xclass(object)
 function _object:frame()
@@ -295,6 +297,7 @@ function _object:kill()
     end
 end
 
+---@class THlib.bubble3:object
 bubble3 = Class(object)
 
 function bubble3:init(img, x, y, rot, vx, vy, omiga, life_time, size1, size2, color1, color2, layer, blend)
@@ -330,6 +333,7 @@ function bubble3:frame()
     end
 end
 
+---@class THlib._bullet_shooter:object
 _bullet_shooter = Class(object)
 function _bullet_shooter:init(f, enemy)
     self.group = GROUP_GHOST
@@ -356,39 +360,6 @@ function _clear_bullet(convert, clear_indes)
     end
 end
 
-function laser:_TurnOn(t, sound, wait)
-    t = t or 30
-    t = max(1, int(t))
-    if sound then
-        PlaySound('lazer00', 0.25, self.x / 200)
-    end
-    self.counter = t
-    self.da = (1 - self.alpha) / t
-    self.dw = (self.w0 - self.w) / t
-    if task.GetSelf() == self and wait then
-        task.Wait(t)
-    end
-end
-function laser:_TurnHalfOn(t, wait)
-    t = t or 30
-    t = max(1, int(t))
-    self.counter = t
-    self.da = (0.5 - self.alpha) / t
-    self.dw = (0.5 * self.w0 - self.w) / t
-    if task.GetSelf() == self and wait then
-        task.Wait(t)
-    end
-end
-function laser:_TurnOff(t, wait)
-    t = t or 30
-    t = max(1, int(t))
-    self.counter = t
-    self.da = -self.alpha / t
-    self.dw = -self.w / t
-    if task.GetSelf() == self and wait then
-        task.Wait(t)
-    end
-end
 function _init_item(self)
     if lstg.var.is_practice then
         item.PlayerInit()
@@ -449,8 +420,8 @@ function _set_rel_pos(servant, x, y, rot, follow_rot)
     end
 end
 
---- _kill_servants(master)
----对_servants中所有对象执行Kill，清空_servants
+---
+--- 对_servants中所有对象执行Kill，清空_servants
 function _kill_servants(master)
     for k, v in pairs(master._servants) do
         if IsValid(v) then
@@ -460,8 +431,8 @@ function _kill_servants(master)
     master._servants = {}
 end
 
----_del_servants(master)
----对_servants中所有对象执行Del，清空_servants
+---
+--- 对_servants中所有对象执行Del，清空_servants
 function _del_servants(master)
     for k, v in pairs(master._servants) do
         if IsValid(v) then
@@ -472,18 +443,28 @@ function _del_servants(master)
 end
 
 --- 从文件载入图像
---- teximgname：图像名
---- filename：文件名
---- mipmap：创建Mipmap链，用于加快图像渲染，对动态纹理和渲染目标无效
---- a,b：横向、纵向碰撞大小的一半
---- rect：是否为矩形碰撞盒
---- edge：图像切边大小
+---@param name string 图像资源名
+---@param filename string 文件名
+---@param mipmap boolean
+---@param a number 横向碰撞大小的一半
+---@param b number 纵向碰撞大小的一半
+---@param rect boolean 碰撞盒形状
+---@param edge number 图像切边大小
 function _LoadImageFromFile(name, filename, mipmap, a, b, rect, edge)
     LoadTexture(name, filename, mipmap)
     local w, h = GetTextureSize(name)
     return LoadImage(name, name, edge, edge, w - edge * 2, h - edge * 2, a, b, rect)
 end
 
+--- 从文件载入图像组
+---@param name string 图像资源名
+---@param filename string 文件名
+---@param mipmap boolean
+---@param r number 列数
+---@param l number 行数
+---@param a number
+---@param b number
+---@param rect boolean 碰撞盒形状
 function _LoadImageGroupFromFile(name, filename, mipmap, r, l, a, b, rect)
     LoadTexture(name, filename, mipmap)
     local w, h = GetTextureSize(name)
@@ -494,6 +475,7 @@ _sc_table = {}
 
 Include 'THlib\\Archimedes.lua'
 
+---@class THlib.archiexpand:THlib.bullet
 archiexpand = Class(bullet)
 function archiexpand:init(imgclass, color, destroyable, navi, auto, center, radius, angle, omiga, deltar)
     bullet.init(self, imgclass, color, true, destroyable)
@@ -507,6 +489,7 @@ function archiexpand:frame()
     archimedes.expand.frame(self)
 end
 
+---@class THlib.archirotate:THlib.bullet
 archirotate = Class(bullet)
 function archirotate:init(imgclass, color, destroyable, navi, auto, center, radius, angle, omiga, time)
     bullet.init(self, imgclass, color, true, destroyable)
@@ -520,8 +503,15 @@ function archirotate:frame()
     archimedes.rotation.frame(self)
 end
 
----SetA(self,accel,angle,maxv,gravity,maxvy,navi)
----设置加速度
+---
+--- 设置加速度
+---@param self object
+---@param accel number
+---@param angle number
+---@param maxv number
+---@param gravity number
+---@param maxvy number
+---@param navi boolean
 function SetA(self, accel, angle, maxv, gravity, maxvy, navi)
     self.navi = navi
     if accel ~= 0 then
@@ -540,6 +530,7 @@ function SetA(self, accel, angle, maxv, gravity, maxvy, navi)
     end
 end
 
+---@class THlib.bullet_cleaner:object
 bullet_cleaner = Class(object)
 function bullet_cleaner:init(x, y, radius, time, time2, into, indes, v)
     self.x = x
@@ -582,6 +573,7 @@ function bullet_cleaner:colli(other)
     end
 end
 
+---@class THlib.rebounder:object
 rebounder = Class(object)
 local rebounder = rebounder
 rebounder.list = {}
@@ -656,6 +648,7 @@ function MakeSmear(obj, length, interval, blend, color, size)
     end
 end
 
+---@class THlib.smear:object
 smear = Class(object)
 smear.cache = {}
 smear.func = function(img)
@@ -718,6 +711,7 @@ Include("THlib/Array.lua")
 Include("THlib/Class.lua")
 Include("THlib/BulletEx.lua")
 
+---@class THlib.RenderObject:object
 RenderObject = Class(object)
 
 function RenderObject:init(parent, image, x, y, rot, h, v, layer, tf)
@@ -796,10 +790,12 @@ function GetFV(obj)
 end
 
 local musicrecording = {}
+
 ---保存音乐播放需要的参数
 function MusicRecord(name, path, loopend, looplength)
     musicrecording[name] = { path, loopend, looplength }
 end
+
 ---根据MusicRecord保存的参数播放音乐
 function LoadMusicRecord(name)
     if type(musicrecording[name]) == "table" then

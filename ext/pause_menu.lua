@@ -1,3 +1,4 @@
+---@class THlib.ext.pause
 local pause = {}
 ext.pause = pause
 

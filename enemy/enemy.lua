@@ -69,11 +69,9 @@ LoadImageGroup('Ghost4', 'enemy3', 0, 96, 32, 32, 8, 1, 8, 8)--黄
 
 local __mt = ObjTable().mt
 
----@class enemybase:object
+---@class THlib.enemybase:object
 enemybase = Class(object)
 
--- enemybase:init(hp, nontaijutsu)
--- 初始化enemybase
 function enemybase:init(hp, nontaijutsu)
     self.layer = LAYER_ENEMY
     self.group = GROUP_ENEMY
@@ -159,7 +157,7 @@ function Damage(obj, dmg)
     end
 end
 
----@class enemy:enemybase
+---@class THlib.enemy:THlib.enemybase
 enemy = Class(enemybase)
 -- 1 2 3 4 -> 红 绿 蓝 黄
 _enemy_aura_tb = { 1, 2, 3, 4, 3, 1, nil, nil, nil, 3, 1, 4, 1, nil, 3, 1, 2, 4, 3, 1, 2, 4, 1, 2, 3, 4, nil, nil, nil, nil, 1, 3, 2, 1 }
@@ -309,7 +307,7 @@ function enemy:kill()
 end
 
 ---击破效果
----@class enemy_death_ef:object
+---@class THlib.enemy_death_ef:object
 enemy_death_ef = Class(object)
 
 function enemy_death_ef:init(index, x, y)
@@ -341,19 +339,20 @@ end
 
 Include 'THlib/enemy/boss.lua'
 
----@class EnemySimple:enemy
+---@class THlib.EnemySimple:THlib.enemy
 EnemySimple = Class(enemy)
 
----初始化EnemySimple类
----style：类型 1-34
----hp：血量
----x,y：位置
----drop：道具数量 {红,绿,蓝}
----pro：保护时间（帧）
----clr：是否消弹
----bound：是否执行出屏检查（自动销毁）
----tjt：是否无体术判定
----tf：创建对象后执行的函数
+--- 初始化EnemySimple对象
+---@param style number 类型 1-34
+---@param hp number 血量
+---@param x number
+---@param y number 位置
+---@param drop table 道具数量 {红,绿,蓝}
+---@param pro number 保护时间（帧）
+---@param clr boolean 是否消弹
+---@param bound boolean 是否执行出屏检查（自动销毁）
+---@param tjt boolean 是否无体术判定
+---@param tf function 创建对象后执行的函数
 function EnemySimple:init(style, hp, x, y, drop, pro, clr, bound, tjt, tf)
     enemy.init(self, style, hp, clr, bound, tjt)
     self.x, self.y = x, y

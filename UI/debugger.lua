@@ -9,6 +9,8 @@ debugCode=string.format(
     Tree.data[stageNode:GetValue()].attr[1],
     Tree.data[groupNode:GetValue()].attr[1])
 ]]
+
+---@class THlib.debugger.stage_init:core.stage
 stage_init = stage.New('init', true, true)
 function stage_init:init()
     menu_items = { }
@@ -22,9 +24,9 @@ function stage_init:init()
                     New(mask_fader, 'close')
                     task.Wait(30)
                     stage.group.PracticeStart(_debug_stage_name)
-                end )
+                end)
             end
-        } )
+        })
     end
     menu_player_select = New(simple_menu, 'Select Player', menu_items)
     New(mask_fader, 'open')

@@ -2,7 +2,6 @@
 ---data/Thlib/misc/misc.lua
 ---comment by Xrysnow 2017.09.09
 
-misc = {}
 
 LoadTexture('misc', 'THlib\\misc\\misc.png')
 LoadImage('player_aura', 'misc', 128, 0, 64, 64)
@@ -27,11 +26,65 @@ local Render = Render
 local Del = Del
 local Render4V = Render4V
 
+---@class THlib.misc
+misc = {}
+
+--TODO
+
+---绘制圆环
+---用于绘制 bossring
+function misc.RenderRing(img, x, y, r1, r2, rot, n, nimg)
+    local da = 360 / n
+    for i = 1, n do
+        local a = rot - da * i
+        Render4V(img .. ((i - 1) % nimg + 1),
+                 r1 * cos(a + da) + x, r1 * sin(a + da) + y, 0.5,
+                 r2 * cos(a + da) + x, r2 * sin(a + da) + y, 0.5,
+                 r2 * cos(a) + x, r2 * sin(a) + y, 0.5,
+                 r1 * cos(a) + x, r1 * sin(a) + y, 0.5)
+    end
+end
+
+---绘制Boss血条亮的部分
+function misc.Renderhp(x, y, rot, la, r1, r2, n, c)
+    RenderSector('hpbar1', x, y, rot, rot + la * c, r1, r2, n)
+end
+
+---绘制Boss血条暗的部分
+function misc.Renderhpbar(x, y, rot, la, r1, r2, n, c)
+    RenderSector('hpbar2', x, y, rot, rot + la * c, r1, r2, n)
+end
+
+---震屏
+---t：时长（帧）
+---s：幅度（像素）
+function misc.ShakeScreen(t, s)
+    if lstg.tmpvar.shaker then
+        --震屏中重设参数
+        lstg.tmpvar.shaker.time = t
+        lstg.tmpvar.shaker.size = s
+        lstg.tmpvar.shaker.timer = 0
+    else
+        New(shaker_maker, t, s)
+    end
+end
+
+---
+---停止粒子发射，存活数为0后删除自己
+function misc.KeepParticle(o)
+    o.class = ParticleKepper
+    PreserveObject(o)
+    ParticleStop(o)
+    o.bound = false
+    o.group = GROUP_GHOST
+end
+
 ---具有显隐过渡效果的图片
 ---使用透明度过渡或垂直缩放过渡
+---@class THlib.hinter:object
 hinter = Class(object)
 
----初始化hinter
+---
 ---img：图像名
 ---size：大小缩放
 ---x,y：位置
@@ -84,8 +137,9 @@ end
 
 ---具有过渡效果的图片
 ---大小和颜色逐渐变化
---bubble = Class(object)
+---@class THlib.bubble:object
 bubble = xclass(object)
+--bubble = Class(object)
 
 function bubble:init(img, x, y, life_time, size1, size2, color1, color2, layer, blend)
     self.img = img
@@ -125,6 +179,7 @@ end
 ---具有过渡效果的图片
 ---大小和颜色逐渐变化
 ---会按一定速度移动
+---@class THlib.bubble2:object
 bubble2 = xclass(object)
 --bubble2 = Class(object)
 
@@ -167,6 +222,7 @@ end
 ---浮动文字
 ---大小和颜色逐渐变化
 ---会按一定速度移动
+---@class THlib.float_text:object
 float_text = Class(object)
 
 function float_text:init(fnt, text, x, y, v, angle, life_time, size1, size2, color1, color2)
@@ -197,32 +253,9 @@ function float_text:frame()
         Del(self)
     end
 end
---TODO
----绘制圆环
----用于绘制 bossring
-function misc.RenderRing(img, x, y, r1, r2, rot, n, nimg)
-    local da = 360 / n
-    for i = 1, n do
-        local a = rot - da * i
-        Render4V(img .. ((i - 1) % nimg + 1),
-                 r1 * cos(a + da) + x, r1 * sin(a + da) + y, 0.5,
-                 r2 * cos(a + da) + x, r2 * sin(a + da) + y, 0.5,
-                 r2 * cos(a) + x, r2 * sin(a) + y, 0.5,
-                 r1 * cos(a) + x, r1 * sin(a) + y, 0.5)
-    end
-end
-
----绘制Boss血条亮的部分
-function misc.Renderhp(x, y, rot, la, r1, r2, n, c)
-    RenderSector('hpbar1', x, y, rot, rot + la * c, r1, r2, n)
-end
-
----绘制Boss血条暗的部分
-function misc.Renderhpbar(x, y, rot, la, r1, r2, n, c)
-    RenderSector('hpbar2', x, y, rot, rot + la * c, r1, r2, n)
-end
 
 ---震屏效果
+---@class THlib.shaker_maker:object
 shaker_maker = Class(object)
 --local lstg = lstg
 
@@ -265,27 +298,15 @@ function shaker_maker:kill()
     lstg.tmpvar.shaker = nil
 end
 
----震屏
----t：时长（帧）
----s：幅度（像素）
-function misc.ShakeScreen(t, s)
-    if lstg.tmpvar.shaker then
-        --震屏中重设参数
-        lstg.tmpvar.shaker.time = t
-        lstg.tmpvar.shaker.size = s
-        lstg.tmpvar.shaker.timer = 0
-    else
-        New(shaker_maker, t, s)
-    end
-end
-
 local task_Do = task.Do
 local task_New = task.New
 local coroutine_status = coroutine.status
 
 ---任务类
 ---具有group属性，协程结束时执行Del
+---@class THlib.tasker:object
 tasker = Class(object)
+
 function tasker:init(f, group)
     self.group = group or GROUP_GHOST
     task_New(self, f)
@@ -297,6 +318,7 @@ function tasker:frame()
     end
 end
 
+---@class THlib.ParticleKepper:object
 ParticleKepper = Class(object)
 
 function ParticleKepper:frame()
@@ -305,18 +327,8 @@ function ParticleKepper:frame()
     end
 end
 
----misc.KeepParticle(particle)
----停止粒子发射，存活数为0后删除自己
-function misc.KeepParticle(o)
-    o.class = ParticleKepper
-    PreserveObject(o)
-    ParticleStop(o)
-    o.bound = false
-    o.group = GROUP_GHOST
-end
-
 ---全屏shutter效果
----未见使用
+---@class THlib.shutter:object
 shutter = Class(object)
 
 function shutter:init(mode)
@@ -330,6 +342,7 @@ function shutter:frame()
         Del(self)
     end
 end
+
 if setting.resx > setting.resy then
     function shutter:render()
         SetViewMode 'ui'
@@ -369,6 +382,7 @@ else
 end
 
 ---全屏遮罩过渡效果
+---@class THlib.mask_fader:object
 mask_fader = Class(object)
 
 function mask_fader:init(mode)
@@ -400,6 +414,7 @@ end
 CopyImage('.white.star', 'white')
 SetImageState('.white.star', 'mul+sub',
               Color(255, 255, 255, 255))
+
 function renderstar(x, y, r, point)
     local ang = 360 / (2 * point)
     for angle = 360 / point, 360, 360 / point do
@@ -415,8 +430,13 @@ end
 CopyImage('.white.rev', 'white')
 SetImageState('.white.rev', 'add+sub',
               Color(255, 255, 255, 255))
+
 ---绘制圆形区域的反色效果，用于Miss效果
 ---使用绘制三角形近似圆形的方法
+---@param x number
+---@param y number
+---@param r number
+---@param point number
 function rendercircle(x, y, r, point)
     --local ang = 360 / (2 * point)
     --for angle = 360 / point, 360, 360 / point do

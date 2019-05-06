@@ -1,5 +1,6 @@
 --
 
+---@class THlib.reimu_player:THlib.player_class
 reimu_player = Class(player_class)
 
 reimu_player._load = function()
@@ -140,6 +141,8 @@ function reimu_player:render()
     player_class.render(self)
 end
 -------------------------------------------------------
+
+---@class THlib.reimu_sp_ef1:object
 reimu_sp_ef1 = Class(object)
 function reimu_sp_ef1:init(img, x, y, v, angle, target, trail, dmg, t)
     self.killflag = true
@@ -253,6 +256,8 @@ function reimu_sp_ef1:del()
 end
 
 -------------------------------------------------------
+
+---@class THlib.reimu_sp_ef2:object
 reimu_sp_ef2 = Class(object)
 
 function reimu_sp_ef2:init(x, y, v, angle, scale, index)
@@ -289,12 +294,16 @@ function reimu_sp_ef2:render()
     SetImageState(self.img, 'mul+add', Color(255, 255, 255, 255))
 end
 -------------------------------------------------------
+
+---@class THlib.reimu_bullet_red:THlib.player_bullet_straight
 reimu_bullet_red = Class(player_bullet_straight)
 
 function reimu_bullet_red:kill()
     New(reimu_bullet_red_ef, self.x, self.y, self.rot + 180)
 end
 -------------------------------------------------------
+
+---@class THlib.reimu_bullet_red_ef:object
 reimu_bullet_red_ef = Class(object)
 
 function reimu_bullet_red_ef:init(x, y)
@@ -313,6 +322,8 @@ function reimu_bullet_red_ef:frame()
     end
 end
 -------------------------------------------------------
+
+---@class THlib.reimu_bullet_orange:THlib.player_bullet_straight
 reimu_bullet_orange = Class(player_bullet_straight)
 
 function reimu_bullet_orange:kill()
@@ -320,7 +331,10 @@ function reimu_bullet_orange:kill()
     New(reimu_bullet_orange_ef2, self.x, self.y)
 end
 -------------------------------------------------------
+
+---@class THlib.reimu_bullet_blue:THlib.player_bullet_straight
 reimu_bullet_blue = Class(player_bullet_trail)
+
 function reimu_bullet_blue:init(img, x, y, v, angle, target, trail, dmg)
     self.group = GROUP_PLAYER_BULLET
     self.layer = LAYER_PLAYER_BULLET
@@ -357,6 +371,8 @@ function reimu_bullet_blue:kill()
 end
 
 -------------------------------------------------------
+
+---@class THlib.reimu_bullet_blue_ef:object
 reimu_bullet_blue_ef = Class(object)
 
 function reimu_bullet_blue_ef:init(x, y, rot)
@@ -376,6 +392,8 @@ function reimu_bullet_blue_ef:frame()
     end
 end
 -------------------------------------------------------
+
+---@class THlib.reimu_sp_ef:THlib.player_bullet_trail
 reimu_sp_ef = Class(player_bullet_trail)
 
 function reimu_sp_ef:kill()
@@ -391,6 +409,8 @@ function reimu_sp_ef:del()
     misc.KeepParticle(self)
 end
 -------------------------------------------------------
+
+---@class THlib.reimu_bullet_ef:object
 reimu_bullet_ef = Class(object)
 
 function reimu_bullet_ef:init(x, y, rot)
@@ -411,6 +431,8 @@ function reimu_bullet_ef:frame()
     end
 end
 -------------------------------------------------------
+
+---@class THlib.reimu_bullet_orange_ef:object
 reimu_bullet_orange_ef = Class(object)
 
 function reimu_bullet_orange_ef:init(x, y, rot)
@@ -433,6 +455,8 @@ function reimu_bullet_orange_ef:frame()
 end
 
 -------------------------------------------------------
+
+---@class THlib.reimu_bullet_orange_ef2:object
 reimu_bullet_orange_ef2 = Class(object)
 
 function reimu_bullet_orange_ef2:init(x, y)
@@ -456,6 +480,7 @@ end
 
 -------------------------------------------------------
 
+---@class THlib.reimu_kekkai:object
 reimu_kekkai = Class(object)
 
 function reimu_kekkai:init(x, y, dmg, dr, n, t)

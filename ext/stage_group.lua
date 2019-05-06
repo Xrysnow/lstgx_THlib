@@ -1,5 +1,4 @@
-
----srage.group
+---@class THlib.stage.group
 local group = {}
 stage.group = group
 stage.groups = {}
@@ -28,6 +27,7 @@ function group.New(title, stages, name, item_init, allow_practice, difficulty)
     sg.difficulty = difficulty or 1
     return sg
 end
+
 function group.AddStage(groupname, stagename, item_init, allow_practice)
     local sg = stage.groups[groupname]
     if sg ~= nil then
@@ -52,6 +52,7 @@ function group.AddStage(groupname, stagename, item_init, allow_practice)
         return s
     end
 end
+
 function group.DefStageFunc(stagename, funcname, f)
     stage.stages[stagename][funcname] = f
 end

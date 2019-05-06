@@ -23,6 +23,7 @@ local slowTicker = 0    ---控制时缓的变量
 local replayStages = {}  ---记录所有关卡的录像数据
 local replayWriter = nil  ---帧记录器
 
+---@class THlib.ext.Replay
 local ext_replay = {}
 ext.replay = ext_replay
 function ext_replay.IsReplay()

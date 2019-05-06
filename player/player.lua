@@ -24,7 +24,7 @@ LoadPS('graze', 'THlib\\player\\graze.psi', 'parimg6')
 LoadImageFromFile('player_spell_mask', 'THlib\\player\\spellmask.png')
 
 ---
----@class player_class:object
+---@class THlib.player_class:object
 player_class = Class(object)
 function player_class:init()
     self.group = GROUP_PLAYER
@@ -197,7 +197,7 @@ function player_class:frame()
         self.y = -176 - 1.2 * self.death--从下向上出现
     end
     --img
-    ---加上time_stop的限制来实现图像时停
+    --加上time_stop的限制来实现图像时停
     if not (self.time_stop) then
         --根据lr决定显示哪一帧
         if abs(self.lr) == 1 then
@@ -299,7 +299,7 @@ function player_class:frame()
         end
         --
     end
-    ---time_stop
+    --time_stop
     if self.time_stop then
         self.timer = self.timer - 1
     end
@@ -347,6 +347,7 @@ function player_class:findtarget()
 end
 
 ---擦弹功能
+---@class THlib.grazer:object
 grazer = Class(object)
 function grazer:init()
     self.layer = LAYER_ENEMY_BULLET_EF + 50
@@ -399,14 +400,15 @@ function grazer:colli(other)
 end
 
 ---直线
+---@class THlib.player_bullet_straight:object
+player_bullet_straight = Class(object)
+
 ---@param img string
 ---@param x number
 ---@param y number
 ---@param v number
 ---@param angle number
 ---@param dmg number
-player_bullet_straight = Class(object)
-
 function player_bullet_straight:init(img, x, y, v, angle, dmg)
     self.group = GROUP_PLAYER_BULLET
     self.layer = LAYER_PLAYER_BULLET
@@ -423,6 +425,7 @@ function player_bullet_straight:init(img, x, y, v, angle, dmg)
 end
 
 ---直线，colli=false，没有img
+---@class THlib.player_bullet_hide:object
 player_bullet_hide = Class(object)
 
 function player_bullet_hide:init(a, b, x, y, v, angle, dmg, delay)
@@ -447,6 +450,7 @@ function player_bullet_hide:frame()
 end
 
 ---诱导
+---@class THlib.player_bullet_trail:object
 player_bullet_trail = Class(object)
 
 function player_bullet_trail:init(img, x, y, v, angle, target, trail, dmg)
@@ -481,6 +485,7 @@ function player_bullet_trail:frame()
 end
 
 ---bomb颜色遮罩
+---@class THlib.player_spell_mask:object
 player_spell_mask = Class(object)
 
 function player_spell_mask:init(r, g, b, t1, t2, t3)
@@ -512,6 +517,7 @@ function player_spell_mask:frame()
 end
 
 ---miss时的粒子效果
+---@class THlib.player_death_ef:object
 player_death_ef = Class(object)
 function player_death_ef:init(x, y)
     self.x = x
@@ -551,6 +557,7 @@ function MixTable(x, t1, t2)
 end
 
 ---miss时的圆形扩散效果
+---@class THlib.deatheff:object
 deatheff = Class(object)
 function deatheff:init(x, y, type_)
     self.x = x
@@ -597,6 +604,7 @@ end
 
 ---player列表
 ---{显示名, 类名(score用), 简称(rep显示用)}
+---@class THlib.player_list
 player_list = {
     { 'Hakurei Reimu', 'reimu_player', 'Reimu' },
     { 'Kirisame Marisa', 'marisa_player', 'Marisa' },

@@ -27,7 +27,7 @@ for i = 1, 16 do
 end
 LoadImage('spell_card_ef', 'boss', 96, 0, 16, 128)
 LoadImage('hpbar', 'boss', 116, 0, 8, 128)
----LoadImage('hpbar1','boss',116,0,2,2)
+--LoadImage('hpbar1','boss',116,0,2,2)
 LoadImage('hpbar2', 'boss', 116, 0, 2, 2)
 SetImageCenter('hpbar', 0, 0)
 --封兽球
@@ -46,7 +46,9 @@ LoadTexture('magicsquare', 'THlib\\enemy\\eff_magicsquare.png')
 LoadImageGroup('boss_aura_3D', 'magicsquare', 0, 0, 256, 256, 5, 5)
 LoadImageFromFile('dialog_box', 'THlib\\enemy\\dialog_box.png')
 
----@class boss:enemybase
+--
+
+---@class THlib.boss:THlib.enemybase
 boss = Class(enemybase)
 
 function boss:init(x, y, name, cards, bg)
@@ -60,7 +62,7 @@ function boss:init(x, y, name, cards, bg)
     self.aura_alpha = 255
     self.aura_alpha_d = 4
 
-    ---符卡/非符/move/escape
+    --符卡/非符/move/escape
     self.cards = cards
     self.card_num = 0--当前符卡/非符序号
     self.dmg_factor = 0--伤害系数
@@ -89,14 +91,14 @@ function boss:init(x, y, name, cards, bg)
     self.bg = bg
     lstg.tmpvar.boss = self
 
-    ---当前boss，全局变量
+    --当前boss，全局变量
     _boss = self
-    ---if self.class.bgm ~= "" then
-    ---    LoadMusicRecord(self.class.bgm)
-    ---    _play_music(self.class.bgm)
-    ---end
+    --if self.class.bgm ~= "" then
+    --    LoadMusicRecord(self.class.bgm)
+    --    _play_music(self.class.bgm)
+    --end
     Kill(self)
-    ---open the first spell card. (= =|||)
+    --open the first spell card. (= =|||)
 end
 
 function boss:frame()
@@ -173,7 +175,7 @@ function boss:frame()
         end
     end
     --计算显示哪一帧-------------------------------------------------------------
-    ------------------------n*4---------------------------
+    -----------------------n*4---------------------------
     if self.cast_t > 0 then
         self.cast = self.cast + 1
     elseif self.cast_t < 0 then
@@ -238,7 +240,7 @@ function boss:frame()
             end
         end
         --self.hscale=sign(1)
-        ----------------------n*3---------------------------------
+        ---------------------n*3---------------------------------
     elseif self.img3 then
         if self.cast > 0 and self.dx == 0 then
             if self.cast >= self.ani_intv * self.nn[3] then
@@ -294,7 +296,7 @@ function boss:frame()
         end
         local scale = abs(self.hscale)
         self.hscale = sign(self.lr) * scale
-        -------------------n*2---------------------------------
+        ------------------n*2---------------------------------
     elseif self.img2 then
         if self.cast > 0 and self.dx == 0 then
             if self.cast >= self.ani_intv * self.nn[2] then
@@ -328,7 +330,7 @@ function boss:frame()
         self.hscale = sign(self.lr) * scale
     end
 
-    ---------------------------------------------
+    --------------------------------------------
     --if self.imgs then
     --    if self.cast>0 then
     --        self.cast=self.cast-1
@@ -344,7 +346,7 @@ function boss:frame()
     --    end
     --end
     --self.hscale=sign(self.lr)
-    -----------------------------------------------
+    ----------------------------------------------
     --保护时间
     if self.sc_pro > 0 then
         self.sc_pro = self.sc_pro - 1
@@ -393,7 +395,7 @@ function boss:frame()
         else
             self.time_sc = false
         end
-        ----------------------------
+        ---------------------------
         --计算SCB
         if lstg.var.sc_bonus and lstg.var.sc_bonus > 0 and c.t1 ~= c.t3 and not (self.killed) then
             lstg.var.sc_bonus = lstg.var.sc_bonus - (self.sc_bonus_max - self.sc_bonus_base) / c.t3
@@ -424,7 +426,7 @@ function boss:frame()
                 end
             end
         end
-        --------------------------------------------------------
+        -------------------------------------------------------
     end
 end
 
@@ -547,7 +549,7 @@ function boss:kill()
                 self.ui.hpbarcolor2 = nil
             end
             lstg.var.sc_bonus = self.sc_bonus_max
-            ---self.ui.hpbarcolor=Color(0xFFFF8080)
+            --self.ui.hpbarcolor=Color(0xFFFF8080)
             New(spell_card_ef)--'Spell Card Attack!!'
             PlaySound('cat00', 0.5)
             if scoredata.spell_card_hist == nil then
@@ -676,6 +678,7 @@ function boss:cast(cast_t)
     self.cast = 1
 end
 
+---@class THlib.boss.card
 boss.card = {}
 
 ---新建符卡/非符
@@ -769,10 +772,10 @@ end
 function boss.card:del()
 end
 
----@class boss.dialog
+---@class THlib.boss.dialog
 boss.dialog = {}
 
----boss.dialog.New(can_skip)
+---
 ---新建boss对话，重载init方法来使用
 ---example：
 ---  _tmp_sc=boss.dialog.New(false)
@@ -788,6 +791,7 @@ boss.dialog = {}
 ---      end)
 ---  end
 ---  table.insert(_editor_class["xxx"].cards,_tmp_sc)
+---@param can_skip boolean
 function boss.dialog.New(can_skip)
     local c = { }
     c.frame = boss.dialog.frame
@@ -823,15 +827,14 @@ function boss.dialog:del()
     self.dialog_displayer = nil
 end
 
----boss.dialog:sentence(img, pos, text, t, hscale, vscale)
----显示一页对话
----img：立绘图像
----pos：'left'或'right'
----text：文本
----t：持续时间（帧），默认为 60+#text*5
----hscale：立绘水平缩放，默认由pos决定
----vscale：立绘垂直缩放，默认为1
----用法见 boss.dialog.New
+--- 显示一句对话
+---@param img string 立绘图像
+---@param pos string 'left'或'right'
+---@param text string 文本
+---@param t number 持续时间（帧），默认为 60+#text*5
+---@param hscale number 立绘水平缩放，默认由pos决定
+---@param vscale number 立绘垂直缩放，默认为1
+---@see THlib.boss.dialog.New
 function boss.dialog:sentence(img, pos, text, t, hscale, vscale)
     if pos == 'left' then
         pos = 1
@@ -858,7 +861,10 @@ function boss.dialog:sentence(img, pos, text, t, hscale, vscale)
     end
     task.Wait(2)
 end
--------------
+
+--
+
+---@class THlib.dialog_displayer:object
 dialog_displayer = Class(object)
 function dialog_displayer:init()
     self.layer = LAYER_TOP
@@ -916,7 +922,7 @@ function dialog_displayer:render()
         SetViewMode 'world'
     end
     if self.text and self.active then
-        ----SetImageState('white','',Color(0xC0000000))
+        ---SetImageState('white','',Color(0xC0000000))
         local kx, ky1, ky2, dx, dy1, dy2
         kx = 168
         ky1 = -210
@@ -1000,16 +1006,19 @@ function dialog_displayer:del()
 	end)
 end
 ]]
+
+---@class THlib.boss.move
 boss.move = { }
 
----boss.move.New(x, y, t, m)
+---
 ---新建boss移动动作
 ---等价于task.MoveTo，一般用于对话开始前
----x,y：目标点
----t：所需时间（帧）
----m：缓冲模式，见task.MoveTo
 ---example：
 ---  table.insert(_editor_class["xxx"].cards,boss.move.New(0,0,60,MOVE_NORMAL))
+---@param x number
+---@param y number 目标点
+---@param t number 所需时间（帧）
+---@param m number 缓冲模式，见task.MoveTo
 function boss.move.New(x, y, t, m)
     local c = { }
     c.frame = boss.move.frame
@@ -1045,11 +1054,16 @@ end
 function boss.move:del()
 end
 
+---@class THlib.boss.escape
 boss.escape = { }
 
----boss.escape.New(x, y, t, m)
+---
 ---新建boss逃跑动作
----本质与boss.move.New相同，不常用
+---本质与boss.move.New相同
+---@param x number
+---@param y number
+---@param t number
+---@param m number
 function boss.escape.New(x, y, t, m)
     local c = { }
     c.frame = boss.escape.frame
@@ -1085,7 +1099,9 @@ end
 function boss.escape:del()
 end
 
+---@class THlib.boss_ui:object
 boss_ui = Class(object)
+
 function boss_ui:init(b)
     self.layer = LAYER_TOP
     self.group = GROUP_GHOST
@@ -1107,7 +1123,7 @@ function boss_ui:render()
         if self.hpbarlen then
             if not (self.boss.time_sc) then
                 if not (self.hpbarcolor2) then
-                    --- sp-'sp'
+                    -- sp-'sp'
                     --当前为符卡，上一阶段也为符卡
                     misc.Renderhpbar(self.boss.x, self.boss.y, 90, 360, 60, 64, 360, 1)
                     --前60帧填充血条
@@ -1126,7 +1142,7 @@ function boss_ui:render()
                         end
                     end
                 elseif not (self.hpbarcolor1) then
-                    ---'non'-non
+                    --'non'-non
                     --当前为非符，下一阶段也为非符
                     misc.Renderhpbar(self.boss.x, self.boss.y, 90, 360, 60, 64, 360, 1)
                     misc.Renderhp(self.boss.x, self.boss.y, 90, 360, 60, 64, 360,
@@ -1134,7 +1150,7 @@ function boss_ui:render()
                     Render('base_hp', self.boss.x, self.boss.y, 0, 0.274, 0.274)
                     Render('base_hp', self.boss.x, self.boss.y, 0, 0.256, 0.256)
                 elseif self.hpbarcolor1 == self.hpbarcolor2 then
-                    ---non-'sp'
+                    --non-'sp'
                     --非符-符卡组合，处于符卡阶段
                     misc.Renderhpbar(self.boss.x, self.boss.y, 90, 360, 60, 64, 360, 1)
                     misc.Renderhp(self.boss.x, self.boss.y, 90, self.boss.lifepoint - 90, 60, 64,
@@ -1142,7 +1158,7 @@ function boss_ui:render()
                     Render('base_hp', self.boss.x, self.boss.y, 0, 0.274, 0.274)
                     Render('base_hp', self.boss.x, self.boss.y, 0, 0.256, 0.256)
                 elseif self.hpbarcolor1 ~= self.hpbarcolor2 then
-                    ---'non'-sp
+                    --'non'-sp
                     --非符-符卡组合，处于非符阶段
                     misc.Renderhpbar(self.boss.x, self.boss.y, 90, 360, 60, 64, 360, 1)
                     if self.boss.timer <= 60 then
@@ -1206,7 +1222,7 @@ function boss_ui:render()
         ay = min(max((lstg.player.y - 160) * 0.05, 0), 0.9)
     end
     local alpha = 1 - ax * ay
-    ----------------------------------------------------------
+    ---------------------------------------------------------
     SetFontState('time', '', Color(alpha * 255, 255, 255, 255))
     local world_w = world.r - world.l
     local xoffset = world_w
@@ -1294,8 +1310,10 @@ function boss_ui:kill()
 end
 boss_ui.del = boss_ui.kill
 
+--- 用于显示'Spell Card Attack!!'
+---@class THlib.spell_card_ef:object
 spell_card_ef = Class(object)
---显示'Spell Card Attack!!'
+
 function spell_card_ef:init()
     self.layer = LAYER_BG + 1
     self.group = GROUP_GHOST
@@ -1331,7 +1349,9 @@ function spell_card_ef:render()
     end
 end
 
+---@class THlib.boss_cast_ef_unit:object
 boss_cast_ef_unit = Class(object)
+
 function boss_cast_ef_unit:init(x, y, v, angle, lifetime, size)
     self.x = x
     self.y = y
@@ -1366,8 +1386,10 @@ function boss_cast_ef_unit:render()
     DefaultRenderFunc(self)
 end
 
---符卡开始时叶子聚集的效果
+--- 符卡开始时叶子聚集的效果
+---@class THlib.boss_cast_ef:object
 boss_cast_ef = Class(object)
+
 function boss_cast_ef:init(x, y)
     self.hide = true
     PlaySound('ch00', 0.5, 0)
@@ -1386,7 +1408,9 @@ function boss_cast_ef:init(x, y)
     Del(self)
 end
 
+---@class THlib.boss_death_ef_unit:object
 boss_death_ef_unit = Class(object)
+
 function boss_death_ef_unit:init(x, y, v, angle, lifetime, size)
     self.x = x
     self.y = y
@@ -1421,8 +1445,10 @@ function boss_death_ef_unit:render()
     DefaultRenderFunc(self)
 end
 
---击破boss时叶子散开的效果，与boss_cast_ef类似
+--- 击破boss时叶子散开的效果，与boss_cast_ef类似
+---@class THlib.boss_death_ef:object
 boss_death_ef = Class(object)
+
 function boss_death_ef:init(x, y)
     PlaySound('enep01', 0.4, 0)
     self.hide = true
@@ -1437,8 +1463,10 @@ function boss_death_ef:init(x, y)
 end
 
 ---------------------------render----------------------------------
+--
 
----绘制圆环的一部分（梯形）
+---
+--- 绘制圆环的一部分（梯形）
 function Render_RIng_4(angle, r, angle_offset, x0, y0, r_, imagename)
     local A_1 = angle + angle_offset
     local A_2 = angle - angle_offset
@@ -1459,9 +1487,10 @@ function Render_RIng_4(angle, r, angle_offset, x0, y0, r_, imagename)
     Render4V(imagename, x1, y1, 0.5, x2, y2, 0.5, x3, y3, 0.5, x4, y4, 0.5)
 end
 
----显示:
----'击破时间  00.00s'
+--- 用于显示 '击破时间  00.00s'
+---@class THlib.kill_timer:object
 kill_timer = Class(object)
+
 function kill_timer:init(x, y, t)
     self.t = t
     self.x = x
@@ -1494,12 +1523,14 @@ function kill_timer:render()
     Render('kill_time', -40, self.y - 2, 0.6, 0.6)
 end
 
----显示：
+--- 用于显示：
 ---'Get Spell Card Bonus'
 ---    '1,000,000'
----与kill_timer同时显示（有点不同步）
+---与kill_timer同时显示
 ---'Bonus Failed...'则由hinter显示
+---@class THlib.hinter_bonus:object
 hinter_bonus = Class(object)
+
 function hinter_bonus:init(img, size, x, y, t1, t2, fade, bonus)
     self.img = img
     self.x = x

@@ -1,4 +1,6 @@
+---@class THlib.scdebugger.stage_init:core.stage
 stage_init = stage.New('init', true, true)
+
 function stage_init:init()
     menu_items = {}
     for i, v in ipairs(player_list) do
@@ -17,9 +19,11 @@ function stage_init:init()
     New(mask_fader, 'open')
     menu.FlyIn(menu_player_select, 'right')
 end
+
 function stage_init:render()
     ui.DrawMenuBG()
 end
+
 stage.group.New('menu', {}, "SC Debugger",
         { lifeleft = 7, power = 400, faith = 50000, bomb = 2 }, false)
 stage.group.AddStage('SC Debugger', 'SC Debugger@SC Debugger',

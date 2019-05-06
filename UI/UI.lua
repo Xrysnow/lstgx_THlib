@@ -2,7 +2,6 @@ Include 'THlib\\UI\\uiconfig.lua'
 Include 'THlib\\UI\\font.lua'
 Include 'THlib\\UI\\title.lua'
 Include 'THlib\\UI\\sc_pr.lua'
-ui = {}
 
 LoadTexture('boss_ui', 'THlib\\UI\\boss_ui.png')
 LoadImage('boss_spell_name_bg', 'boss_ui', 0, 0, 256, 36)
@@ -42,7 +41,7 @@ SetImageCenter('hint.Pnumber', 0, 10)
 SetImageCenter('hint.Bnumber', 0, 10)
 
 LoadTexture('line', 'THlib\\UI\\line.png', true)
-LoadImageGroup('line_', 'line', 0, 0, 180, 8, 1, 7, 0, 0)
+LoadImageGroup('line_', 'line', 0, 0, 200, 8, 1, 7, 0, 0)
 
 LoadTexture('ui_rank', 'THlib\\UI\\rank.png')
 LoadImage('rank_Easy', 'ui_rank', 0, 0, 144, 32)
@@ -50,6 +49,9 @@ LoadImage('rank_Normal', 'ui_rank', 0, 32, 144, 32)
 LoadImage('rank_Hard', 'ui_rank', 0, 64, 144, 32)
 LoadImage('rank_Lunatic', 'ui_rank', 0, 96, 144, 32)
 LoadImage('rank_Extra', 'ui_rank', 0, 128, 144, 32)
+
+---@class THlib.ui
+ui = {}
 
 ---UI菜单参数
 ui.menu = {
@@ -66,11 +68,11 @@ ui.menu = {
     shake_time          = 9,
     shake_speed         = 40,
     shake_range         = 3,
-    ---符卡练习每页行数
+    --符卡练习每页行数
     sc_pr_line_per_page = 12,
     -- 符卡练习每行高度
     sc_pr_line_height   = 22,
-    ---符卡练习每行宽度
+    --符卡练习每行宽度
     sc_pr_width         = 320,
     sc_pr_margin        = 8,
     rep_font_size       = 0.6,
@@ -236,22 +238,6 @@ function RenderScore(fontname, score, x, y, size, mode)
         RenderText(fontname, string.format('99,999,999,999'), x, y, size, mode)
     end
 end
---
-diff_render_obj = Class(object)
-function diff_render_obj:init(x, y, _type, img)
-    self.group = GROUP_GHOST
-    self.bound = false
-    self.x = x
-    self.y = y
-    self.rot, self.
-    self          .layer = LAYER_TOP
-    self.img = _type .. img
-    self._a, self._r, self._g, self._b = 255, 255, 255, 255
-    ui_diff = self
-end
-function diff_render_obj:render()
-    Render(self.img, self.x, self.y, self.rot, self.hscale, self.vscale)
-end
 
 --
 if setting.resx > setting.resy then
@@ -346,11 +332,11 @@ if setting.resx > setting.resy then
         --Render('hint.graze',466,222,0,0.5)
         SetFontState('score1', '', Color(0xFFCD6600))
         SetFontState('score2', '', Color(0xFF22D8DD))
-        ---
+        --
         RenderText('score1', string.format('%d.    /4.    ', math.floor(lstg.var.power / 100)), 610, 262, 0.4, 'right')
         RenderText('score1', string.format('      %d%d        00',
-                math.floor((lstg.var.power % 100) / 10), lstg.var.power % 10),
-                611, 258.5, 0.3, 'right')
+                                           math.floor((lstg.var.power % 100) / 10), lstg.var.power % 10),
+                   611, 258.5, 0.3, 'right')
         RenderText('score2', string.format('%d,%d%d%d', math.floor(lstg.var.pointrate / 1000), math.floor(lstg.var.pointrate / 100) % 10, math.floor(lstg.var.pointrate / 10) % 10, lstg.var.pointrate % 10), 610, 239, 0.4, 'right')
         SetFontState('score3', '', Color(0xFFADADAD))
         RenderText('score3', string.format('%d', lstg.var.graze), 610, 216, 0.4, 'right')
@@ -387,4 +373,22 @@ else
         RenderText('score', string.rep('*', max(0, lstg.var.lifeleft)), 388, 496, 0.5, 'right', 'top')
         RenderText('score', string.rep('*', max(0, lstg.var.bomb)), 380, 490, 0.5, 'right', 'top')
     end
+end
+
+---@class THlib.diff_render_obj:object
+diff_render_obj = Class(object)
+
+function diff_render_obj:init(x, y, _type, img)
+    self.group = GROUP_GHOST
+    self.bound = false
+    self.x = x
+    self.y = y
+    self.rot, self.
+    self          .layer = LAYER_TOP
+    self.img = _type .. img
+    self._a, self._r, self._g, self._b = 255, 255, 255, 255
+    ui_diff = self
+end
+function diff_render_obj:render()
+    Render(self.img, self.x, self.y, self.rot, self.hscale, self.vscale)
 end

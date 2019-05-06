@@ -32,7 +32,7 @@ end
 _G['laser_bent_meta_newindex'] = laser_bent_meta_newindex
 
 ---
----@class laser_bent:object
+---@class THlib.laser_bent:object
 laser_bent = Class(object)
 
 function laser_bent:init(index, x, y, l, w, sample, node)
@@ -142,7 +142,7 @@ assert(laser3)
 function laser_bent:render()
     local color = Color(self._a * self.alpha, self._r, self._g, self._b)
     self.data:render(laser3, self._blend, color,
-            0, self.index * 16 - 12, 256, 8)
+                     0, self.index * 16 - 12, 256, 8)
     local timer = self.timer
     if timer < self._l * 4 and self.node then
         --绘制发弹源
@@ -150,9 +150,9 @@ function laser_bent:render()
         SetImageState(img4, self._blend, color)
         local scale = (8 + timer % 3) * 0.125 * self.node / 8
         Render(img4, self.prex, self.prey, -3 * timer,
-                scale)
+               scale)
         Render(img4, self.prex, self.prey, -3 * timer + 180,
-                scale)
+               scale)
     end
 end
 
@@ -185,24 +185,36 @@ function laser_bent:kill()
     end
 end
 
+---@class THlib.laser_bent_death_ef:object
 laser_bent_death_ef = Class(object)
+
 function laser_bent_death_ef:frame()
     if self.timer == 30 then
         Del(self)
     end
 end
+
 function laser_bent_death_ef:render()
     self.data:render(laser3, 'mul+add',
-            Color(255 - 8.5 * self.timer, 255, 255, 255),
-            0, self.index * 16 - 12, 256, 8)
+                     Color(255 - 8.5 * self.timer, 255, 255, 255),
+                     0, self.index * 16 - 12, 256, 8)
 end
 
+function laser_bent_death_ef:del()
+    self.data:release()
+end
+function laser_bent_death_ef:kill()
+    self.data:release()
+end
 ---------------------------------------------------
---雷电激光，与laser_bent的区别主要是无消弹特效
 --TODO 合并
 local laser5 = LoadTexture('laser_bent2', 'THlib/laser/laser5.png')
 assert(laser5)
+
+---雷电激光，与laser_bent的区别主要是无消弹特效
+---@class THlib.laser_bent_elec:object
 laser_bent_elec = Class(object)
+
 function laser_bent_elec:init(index, x, y, l, w, sample, node)
     self.index = index
     self.x = x
@@ -259,9 +271,9 @@ function laser_bent_elec:render()
         SetImageState(self.img4, 'mul+add', _c_white)
         local scale = (8 + self.timer % 3) * 0.125 * self.node / 8
         Render(self.img4, self.prex, self.prey, -3 * self.timer,
-                scale)
+               scale)
         Render(self.img4, self.prex, self.prey, -3 * self.timer + 180,
-                scale)
+               scale)
     end
 end
 
@@ -290,25 +302,21 @@ function laser_bent_elec:kill()
     end
 end
 
+---@class THlib.laser_bent2_death_ef:object
 laser_bent2_death_ef = Class(object)
+
 function laser_bent2_death_ef:frame()
     if self.timer == 30 then
         Del(self)
     end
 end
+
 function laser_bent2_death_ef:render()
     self.data:render(laser5, 'mul+add',
-            Color(255 - 8.5 * self.timer, 255, 255, 255),
-            0, 32 * (int(0.5 * self.timer) % 4), 256, 32)
+                     Color(255 - 8.5 * self.timer, 255, 255, 255),
+                     0, 32 * (int(0.5 * self.timer) % 4), 256, 32)
 end
--------------------------------------------
 
-function laser_bent_death_ef:del()
-    self.data:release()
-end
-function laser_bent_death_ef:kill()
-    self.data:release()
-end
 function laser_bent2_death_ef:del()
     self.data:release()
 end

@@ -1,5 +1,6 @@
 --
 
+---@class THlib.marisa_player:THlib.player_class
 marisa_player = Class(player_class)
 
 marisa_player._load = function()
@@ -245,6 +246,7 @@ function marisa_player:render()
     player_class.render(self)
 end
 
+---@class THlib.marisa_bullet:THlib.player_bullet_straight
 marisa_bullet = Class(player_bullet_straight)
 
 function marisa_bullet:kill()
@@ -253,6 +255,7 @@ function marisa_bullet:kill()
     New(marisa_bullet_ef, self.x, self.y, self.rot, 5)
 end
 
+---@class THlib.marisa_missile:THlib.player_bullet_straight
 marisa_missile = Class(player_bullet_straight)
 
 function marisa_missile:frame()
@@ -264,6 +267,7 @@ function marisa_missile:kill()
     New(marisa_missile_ef, self.x + r * cos(a), self.y + r * sin(a), self.dmg, 5)
 end
 
+---@class THlib.marisa_missile_ef:object
 marisa_missile_ef = Class(object)
 
 function marisa_missile_ef:init(x, y, dmg, t)
@@ -291,6 +295,7 @@ function marisa_missile_ef:frame()
     end
 end
 
+---@class THlib.marisa_bullet_ef:object
 marisa_bullet_ef = Class(object)
 
 function marisa_bullet_ef:init(x, y, rot, v)
@@ -314,6 +319,7 @@ function marisa_bullet_ef:render()
     object.render(self)
 end
 
+---@class THlib.marisa_laser_hit:object
 marisa_laser_hit = Class(object)
 
 function marisa_laser_hit:init(x, y)
@@ -333,6 +339,7 @@ function marisa_laser_hit:frame()
     end
 end
 
+---@class THlib.marisa_sp_ef:object
 marisa_sp_ef = Class(object)
 
 function marisa_sp_ef:init(rot)
@@ -353,6 +360,7 @@ function marisa_sp_ef:frame()
     end
 end
 
+---@class THlib.marisa_spark:object
 marisa_spark = Class(object)
 
 function marisa_spark:init(x, y, rot, turnOnTime, wait, turnOffTime)
@@ -383,6 +391,7 @@ function marisa_spark:frame()
     self.y = player.y
 end
 
+---@class THlib.marisa_spark_wave:object
 marisa_spark_wave = Class(object)
 
 function marisa_spark_wave:init(x, y, rot, v, dmg)

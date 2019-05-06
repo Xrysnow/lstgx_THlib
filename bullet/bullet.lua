@@ -1,39 +1,39 @@
----弹型与判定可参考http://thwiki.cc/游戏攻略/STG判定数据
+--弹型与判定可参考http://thwiki.cc/游戏攻略/STG判定数据
 
 LoadTexture('bullet1', 'THlib\\bullet\\bullet1.png', true)
----发弹点 无判定
+--发弹点 无判定
 LoadImageGroup('preimg', 'bullet1',
                80, 0, 32, 32, 1, 8)
----鳞弹
+--鳞弹
 LoadImageGroup('arrow_big', 'bullet1',
                0, 0, 16, 16, 1, 16, 2.5, 2.5)
----铳弹
+--铳弹
 LoadImageGroup('gun_bullet', 'bullet1',
                24, 0, 16, 16, 1, 16, 2.5, 2.5)
----铳弹（虚）
+--铳弹（虚）
 LoadImageGroup('gun_bullet_void', 'bullet1',
                56, 0, 16, 16, 1, 16, 2.5, 2.5)
----蝶弹
+--蝶弹
 LoadImageGroup('butterfly', 'bullet1',
                112, 0, 32, 32, 1, 8, 4, 4)
----札弹
+--札弹
 LoadImageGroup('square', 'bullet1',
                152, 0, 16, 16, 1, 16, 3, 3)
----小玉
+--小玉
 LoadImageGroup('ball_mid', 'bullet1',
                176, 0, 32, 32, 1, 8, 4, 4)
----葡萄弹
+--葡萄弹
 LoadImageGroup('mildew', 'bullet1',
                208, 0, 16, 16, 1, 16, 2, 2)
----椭弹
+--椭弹
 LoadImageGroup('ellipse', 'bullet1',
                224, 0, 32, 32, 1, 8, 4.5, 4.5)
 
 LoadTexture('bullet2', 'THlib\\bullet\\bullet2.png')
----星弹（小）
+--星弹（小）
 LoadImageGroup('star_small', 'bullet2',
                96, 0, 16, 16, 1, 16, 3, 3)
----星弹（大）
+--星弹（大）
 LoadImageGroup('star_big', 'bullet2',
                224, 0, 32, 32, 1, 8, 5.5, 5.5)
 for i = 1, 8 do
@@ -41,36 +41,36 @@ for i = 1, 8 do
 end
 --LoadImageGroup('ball_huge','bullet2',0,0,64,64,1,4,16,16)
 --LoadImageGroup('fade_ball_huge','bullet2',0,0,64,64,1,4,16,16)
----中玉
+--中玉
 LoadImageGroup('ball_big', 'bullet2',
                192, 0, 32, 32, 1, 8, 8, 8)
 for i = 1, 8 do
     SetImageCenter('ball_big' .. i, 16, 16.5)
 end
----点弹
+--点弹
 LoadImageGroup('ball_small', 'bullet2',
                176, 0, 16, 16, 1, 16, 2, 2)
----米弹
+--米弹
 LoadImageGroup('grain_a', 'bullet2',
                160, 0, 16, 16, 1, 16, 2.5, 2.5)
----针弹
+--针弹
 LoadImageGroup('grain_b', 'bullet2',
                128, 0, 16, 16, 1, 16, 2.5, 2.5)
 
 LoadTexture('bullet3', 'THlib\\bullet\\bullet3.png')
----刀弹
+--刀弹
 LoadImageGroup('knife', 'bullet3',
                0, 0, 32, 32, 1, 8, 4, 4)
----杆菌弹
+--杆菌弹
 LoadImageGroup('grain_c', 'bullet3',
                48, 0, 16, 16, 1, 16, 2.5, 2.5)
----链弹
+--链弹
 LoadImageGroup('arrow_small', 'bullet3',
                80, 0, 16, 16, 1, 16, 2.5, 2.5)
----滴弹
+--滴弹
 LoadImageGroup('kite', 'bullet3',
                112, 0, 16, 16, 1, 16, 2.5, 2.5)
----伪激光
+--伪激光
 LoadImageGroup('fake_laser', 'bullet3',
                144, 0, 14, 16, 1, 16, 5, 5, true)
 for i = 1, 16 do
@@ -79,44 +79,44 @@ for i = 1, 16 do
 end
 
 LoadTexture('bullet4', 'THlib\\bullet\\bullet4.png')
----10角星弹
+--10角星弹
 LoadImageGroup('star_big_b', 'bullet4',
                32, 0, 32, 32, 1, 8, 6, 6)
----小玉b
+--小玉b
 LoadImageGroup('ball_mid_b', 'bullet4',
                64, 0, 32, 32, 1, 8, 4, 4)
 for i = 1, 8 do
     SetImageState('ball_mid_b' .. i, 'mul+add', Color(200, 200, 200, 200))
 end
----箭弹
+--箭弹
 LoadImageGroup('arrow_mid', 'bullet4',
                96, 0, 32, 32, 1, 8, 3.5, 3.5)
 for i = 1, 8 do
     SetImageCenter('arrow_mid' .. i, 24, 16)
 end
----心弹
+--心弹
 LoadImageGroup('heart', 'bullet4',
                128, 0, 32, 32, 1, 8, 9, 9)
----刀弹b
+--刀弹b
 LoadImageGroup('knife_b', 'bullet4',
                192, 0, 32, 32, 1, 8, 3.5, 3.5)
----小玉c
+--小玉c
 for i = 1, 8 do
     LoadImage('ball_mid_c' .. i, 'bullet4',
               232, i * 32 - 24, 16, 16, 4, 4)
 end
----钱币
+--钱币
 LoadImageGroup('money', 'bullet4',
                168, 0, 16, 16, 1, 8, 4, 4)
----小玉d
+--小玉d
 LoadImageGroup('ball_mid_d', 'bullet4',
                168, 128, 16, 16, 1, 8, 3, 3)
 for i = 1, 8 do
     SetImageState('ball_mid_d' .. i, 'mul+add')
 end
---------ball_light--------
+-------ball_light--------
 LoadTexture('bullet5', 'THlib\\bullet\\bullet5.png')
----光玉
+--光玉
 LoadImageGroup('ball_light', 'bullet5',
                0, 0, 64, 64, 4, 2, 11.5, 11.5)
 LoadImageGroup('fade_ball_light', 'bullet5',
@@ -131,7 +131,7 @@ end
 --------------------------
 --------ball_huge---------
 LoadTexture('bullet_ball_huge', 'THlib\\bullet\\bullet_ball_huge.png')
----大玉
+--大玉
 LoadImageGroup('ball_huge', 'bullet_ball_huge',
                0, 0, 64, 64, 4, 2, 13.5, 13.5)
 LoadImageGroup('fade_ball_huge', 'bullet_ball_huge',
@@ -145,7 +145,7 @@ for i = 1, 8 do
 end
 --------------------------
 --------water_drop--------
----炎弹 有动画
+--炎弹 有动画
 LoadTexture('bullet_water_drop', 'THlib\\bullet\\bullet_water_drop.png')
 for i = 1, 8 do
     LoadAnimation('water_drop' .. i, 'bullet_water_drop',
@@ -158,7 +158,7 @@ for i = 1, 8 do
 end
 --------------------------
 --------music-------------
----音符 有动画
+--音符 有动画
 LoadTexture('bullet_music', 'THlib\\bullet\\bullet_music.png')
 for i = 1, 8 do
     LoadAnimation('music' .. i, 'bullet_music',
@@ -166,17 +166,17 @@ for i = 1, 8 do
 end
 ------silence-------------
 LoadTexture('bullet6', 'THlib\\bullet\\bullet6.png')
----休止符
+--休止符
 LoadImageGroup('silence', 'bullet6',
                192, 0, 32, 32, 1, 8, 4.5, 4.5)
 --------------------------
 
 LoadTexture('etbreak', 'THlib\\bullet\\etbreak.png')
----消弹图像
+--消弹图像
 --LoadImageGroup('etbreak', 'etbreak',
 --        0, 0, 64, 64, 4, 2, 0, 0)
 
----消弹效果颜色
+--消弹效果颜色
 local BulletBreakIndex = {
     Color(0xC0FF3030), --red
     Color(0xC0FF30FF), --purple
@@ -189,7 +189,7 @@ local BulletBreakIndex = {
 }
 _G['BulletBreakIndex'] = BulletBreakIndex
 
----消弹图像
+--消弹图像
 for i = 1, 16 do
     local name = 'etbreak' .. i
     --播放间隔3帧
@@ -227,24 +227,26 @@ local SetAttr = SetAttr
 local misc = misc
 local rawget = rawget
 
----消弹效果
+--
+
+---@class THlib.BulletBreak:object 消弹效果
 BulletBreak = Class(object)
 local BulletBreak = BulletBreak
 
----BulletBreak:init(x,y,index)
 ---初始化消弹效果
----x,y：位置
----index：序号（颜色标识）
+---@param x number
+---@param y number 位置
+---@param index number 序号（颜色标识）
 function BulletBreak:init(x, y, index)
     self.x = x
     self.y = y
     self.group = GROUP_GHOST
     self.layer = LAYER_ENEMY_BULLET - 50
-    ---随机缩放
+    --随机缩放
     local s = ran:Float(0.5, 0.75)
     self.hscale = s
     self.vscale = s
-    ---随机旋转
+    --随机旋转
     self.rot = ran:Float(0, 360)
     self.img = _bbrnames[index]
 end
@@ -262,18 +264,18 @@ BulletBreak.render = DefaultRenderFunc
 ----
 
 ---
----@class bullet:object @子弹类
----@param imgclass img_class @弹型
----@param index number @颜色索引
----@param stay boolean @是否停滞
----@param destroyable boolean @是则分组为GROUP_ENEMY_BULLET，否则分组为GROUP_INDES
+---@class THlib.bullet:object 子弹类
 bullet = Class(object)
 local bullet = bullet
 
+---@param imgclass THlib.img_class 弹型
+---@param index number 颜色索引
+---@param stay boolean 是否停滞
+---@param destroyable boolean 是则分组为GROUP_ENEMY_BULLET，否则分组为GROUP_INDES
 function bullet:init(imgclass, index, stay, destroyable)
     --保存bullet class
     self.logclass = self.class
-    ---@type img_class
+    ---@type THlib.img_class
     self.imgclass = imgclass
     self.class = imgclass
     if destroyable then
@@ -326,7 +328,7 @@ function bullet:del()
     if self.imgclass.size == 2.0 then
         self.imgclass.del(self)
     end
-    ---在屏幕内时产生消弹效果
+    --在屏幕内时产生消弹效果
     local w = lstg.world
     if self._index and BoxCheck(self, w.boundl, w.boundr, w.boundb, w.boundt) then
         New(BulletBreak, self.x, self.y, self._index)
@@ -348,13 +350,15 @@ end
 --bullet.render = DefaultRenderFunc
 
 ----------------------------------------------------------------
----弹型类，实现子弹的基本功能
----@class img_class:object
+
+------弹型类，实现子弹的基本功能
+---@class THlib.img_class:object
 img_class = Class(object)
+
 function img_class:frame()
     if not self.stay then
-        ---timer<11时self.stay=nil
-        ---只执行task
+        --timer<11时self.stay=nil
+        --只执行task
         --by OLC，修正了defaul action死循环的问题
         if not self._forbid_ref then
             self._forbid_ref = true
@@ -386,6 +390,7 @@ function img_class:del()
 end
 
 --local img_class_del = img_class.del
+
 function img_class:kill()
     --产生收缩效果，消弹效果和一个绿点（小）
     --img_class_del(self)
@@ -424,7 +429,7 @@ function img_class:render()
 end
 ----------------------------------------------------------------
 
----ChangeBulletImage(obj,imgclass,index)
+---
 ---更改子弹弹型和颜色
 function ChangeBulletImage(obj, imgclass, index)
     if obj.class == obj.imgclass then
@@ -441,7 +446,8 @@ bullet.gclist = {}
 local bullet_gclist = bullet.gclist
 
 local _c_white = Color(0xFFFFFFFF)
----ChangeBulletHighlight(imgclass,index,on)
+
+---
 ---更改子弹高光设置
 function ChangeBulletHighlight(imgclass, index, on)
     local ble = ''
@@ -457,19 +463,25 @@ function ChangeBulletHighlight(imgclass, index, on)
     bullet_gclist[imgclass][index] = on
 end
 ----------------------------------------------------------------
----粒子效果
+
+---
+---@class THlib.particle_img:object 粒子效果
 particle_img = Class(object)
+
 function particle_img:init(index)
     self.layer = LAYER_ENEMY_BULLET
     self.img = index
     self.class = self.logclass
 end
+
 function particle_img:del()
     misc.KeepParticle(self)
 end
+
 --function particle_img:kill()
 --    particle_img.del(self)
 --end
+
 particle_img.kill = particle_img.del
 ----------------------------------------------------------------
 local function createNames(str)
@@ -500,48 +512,53 @@ local function createByDef(def)
     end
 end
 ----------------------------------------------------------------
+
 local def1 = {
-    ---鳞弹
+    ---@class THlib.arrow_big:THlib.img_class 鳞弹
     { 'arrow_big', 0.6, false },
-    ---箭弹
+    ---@class THlib.arrow_mid:THlib.img_class 箭弹
     { 'arrow_mid', 0.61, true },
-    ---铳弹
+    ---@class THlib.gun_bullet:THlib.img_class 铳弹
     { 'gun_bullet', 0.4, false },
-    ---铳弹（虚）
+    ---@class THlib.gun_bullet_void:THlib.img_class 铳弹（虚）
     { 'gun_bullet_void', 0.4, false },
-    ---蝶弹
+    ---@class THlib.butterfly:THlib.img_class 蝶弹
     { 'butterfly', 0.7, true },
-    ---札弹
+    ---@class THlib.square:THlib.img_class 札弹
     { 'square', 0.8, false },
-    ---小玉
+    ---@class THlib.ball_mid:THlib.img_class 小玉
     { 'ball_mid', 0.75, true },
-    ---小玉b
+    ---@class THlib.ball_mid_b:THlib.img_class 小玉b
     { 'ball_mid_b', 0.751, true },
-    ---小玉c
+    ---@class THlib.ball_mid_c:THlib.img_class 小玉c
     { 'ball_mid_c', 0.752, true },
-    ---小玉d
+    ---@class THlib.ball_mid_d:THlib.img_class 小玉d
     { 'ball_mid_d', 0.753, true },
-    ---钱币
+    ---@class THlib.money:THlib.img_class 钱币
     { 'money', 0.753, true },
-    ---葡萄弹
+    ---@class THlib.mildew:THlib.img_class 葡萄弹
     { 'mildew', 0.401, false },
-    ---椭弹
+    ---@class THlib.ellipse:THlib.img_class 椭弹
     { 'ellipse', 0.701, true },
-    ---星弹（小）
+    ---@class THlib.star_small:THlib.img_class 星弹（小）
     { 'star_small', 0.5, false },
-    ---星弹（大）
+    ---@class THlib.star_big:THlib.img_class 星弹（大）
     { 'star_big', 0.998, true },
-    ---10角星弹
+    ---@class THlib.star_big_b:THlib.img_class 10角星弹
     { 'star_big_b', 0.999, true },
 }
 createByDef(def1)
 ----------------------------------------------------------------
----大玉
+
+---
+---@class THlib.ball_huge:THlib.img_class 大玉
 ball_huge = Class(img_class)
 ball_huge.size = 2.0
+
 function ball_huge:init(index)
     self.img = 'ball_huge' .. int((index + 1) / 2)
 end
+
 function ball_huge:frame()
     if not self.stay then
         self.logclass.frame(self)
@@ -559,24 +576,28 @@ function ball_huge:frame()
         end
     end
 end
+
 function ball_huge:render()
-    ---逐渐增加透明度
+    --逐渐增加透明度
     SetImageState('fade_' .. self.img, 'mul+add', Color(255 * self.timer / 11, 255, 255, 255))
-    ---大小从2倍逐渐变为1倍
+    --大小从2倍逐渐变为1倍
     Render('fade_' .. self.img, self.x, self.y, self.rot, (11 - self.timer) / 11 + 1)
 end
+
 local _bh_c1 = Color(0xFFFFFFFF)
 local _bh_c2 = Color(0x00FFFFFF)
 function ball_huge:del()
-    ---收缩效果和逐渐透明
+    --收缩效果和逐渐透明
     New(bubble2, 'fade_' .. self.img, self.x, self.y, self.dx, self.dy, 11, 1, 0, _bh_c1, _bh_c2, self.layer, 'mul+add')
 end
 function ball_huge:kill()
     ball_huge.del(self)
 end
 ----------------------------------------------------------------------------
----大玉（暗）
----参照ball_huge
+
+---
+---@see THlib.ball_huge
+---@class THlib.ball_huge_dark:THlib.img_class 大玉（暗）
 ball_huge_dark = Class(img_class)
 ball_huge_dark.size = 2.0
 function ball_huge_dark:init(index)
@@ -612,8 +633,10 @@ function ball_huge_dark:kill()
     ball_huge.del(self)
 end
 ----------------------------------------------------------------
----光玉
----参照ball_huge
+
+---
+---@see THlib.ball_huge
+---@class THlib.ball_light:THlib.img_class 光玉
 ball_light = Class(img_class)
 local ball_light = ball_light
 ball_light.size = 2.0
@@ -649,8 +672,10 @@ end
 --end
 ball_light.kill = ball_light.del
 ----------------------------------------------------------------
----光玉（暗）
----参照ball_huge
+
+---
+---@see THlib.ball_huge
+---@class THlib.ball_light_dark:THlib.img_class 光玉（暗）
 ball_light_dark = Class(img_class)
 local ball_light_dark = ball_light_dark
 ball_light_dark.size = 2.0
@@ -688,29 +713,41 @@ ball_light_dark.kill = ball_light.del
 ----------------------------------------------------------------
 local def2 = {
     ---中玉
+    ---@class THlib.ball_big:THlib.img_class
     { 'ball_big', 1.0, true },
     ---心弹
+    ---@class THlib.heart:THlib.img_class
     { 'heart', 1.0, true },
     ---点弹
+    ---@class THlib.ball_small:THlib.img_class
     { 'ball_small', 0.402, false },
     ---米弹
+    ---@class THlib.grain_a:THlib.img_class
     { 'grain_a', 0.403, false },
     ---针弹
+    ---@class THlib.grain_b:THlib.img_class
     { 'grain_b', 0.404, false },
     ---杆菌弹
+    ---@class THlib.grain_c:THlib.img_class
     { 'grain_c', 0.405, false },
     ---滴弹
+    ---@class THlib.kite:THlib.img_class
     { 'kite', 0.406, false },
     ---刀弹
+    ---@class THlib.knife:THlib.img_class
     { 'knife', 0.754, true },
     ---刀弹b
+    ---@class THlib.knife_b:THlib.img_class
     { 'knife_b', 0.755, true },
     ---链弹
+    ---@class THlib.arrow_small:THlib.img_class
     { 'arrow_small', 0.407, false },
 }
 createByDef(def2)
 ----------------------------------------------------------------
----炎弹 有动画
+
+---
+---@class THlib.water_drop:THlib.img_class 炎弹 有动画
 water_drop = Class(img_class)   --2 4 6 10 12
 water_drop.size = 0.702
 function water_drop:init(index)
@@ -721,21 +758,27 @@ function water_drop:render()
     Render('preimg' .. self.index, self.x, self.y, self.rot, ((11 - self.timer) / 11 * 2 + 1) * self.imgclass.size)
 end
 ----------------------------------------------------------------
----炎弹（暗） 有动画
+
+---
+---@class THlib.water_drop_dark:THlib.img_class 炎弹（暗） 有动画
 water_drop_dark = Class(img_class)   --2 4 6 10 12
 water_drop_dark.size = 0.702
 function water_drop_dark:init(index)
     self.img = 'water_drop_dark' .. int((index + 1) / 2)
 end
 ----------------------------------------------------------------
----音符 有动画
+
+---
+---@class THlib.music:THlib.img_class 音符 有动画
 music = Class(img_class)
 music.size = 0.8
 function music:init(index)
     self.img = 'music' .. int((index + 1) / 2)
 end
 ----------------------------------------------------------------
----休止符
+
+---
+---@class THlib.silence:THlib.img_class 休止符
 silence = Class(img_class)
 silence.size = 0.8
 function silence:init(index)
@@ -744,6 +787,9 @@ end
 ----------------------------------------------------------------
 
 ----------------------------------------------------------------
+
+---
+---@class THlib.straight:THlib.bullet
 straight = Class(bullet)
 function straight:init(imgclass, index, stay, x, y, v, angle, omiga)
     self.x = x
@@ -753,6 +799,10 @@ function straight:init(imgclass, index, stay, x, y, v, angle, omiga)
     bullet.init(self, imgclass, index, stay, true)
 end
 ----------------------------------------------------------------
+
+
+---
+---@class THlib.straight_indes:THlib.bullet
 straight_indes = Class(bullet)
 function straight_indes:init(imgclass, index, stay, x, y, v, angle, omiga)
     self.x = x
@@ -763,6 +813,10 @@ function straight_indes:init(imgclass, index, stay, x, y, v, angle, omiga)
     self.group = GROUP_INDES
 end
 ----------------------------------------------------------------
+
+
+---
+---@class THlib.straight_495:THlib.bullet
 straight_495 = Class(bullet)
 function straight_495:init(imgclass, index, stay, x, y, v, angle, omiga)
     self.x = x
@@ -813,6 +867,8 @@ local Kill = Kill
 --local GROUP_INDES = GROUP_INDES
 --local GROUP_ENEMY_BULLET = GROUP_ENEMY_BULLET
 
+---
+---@class THlib.bullet_killer:object
 bullet_killer = Class(object)
 function bullet_killer:init(x, y, kill_indes)
     self.x = x
@@ -822,7 +878,7 @@ function bullet_killer:init(x, y, kill_indes)
     self.kill_indes = kill_indes
 end
 function bullet_killer:frame()
-    ---kill范围为圆形逐渐增大
+    --kill范围为圆形逐渐增大
     if self.timer == 40 then
         Del(self)
     end
@@ -841,6 +897,10 @@ function bullet_killer:frame()
     end
 end
 ----------------------------------------------------------------
+
+
+---
+---@class THlib.bullet_deleter:object
 bullet_deleter = Class(object)
 function bullet_deleter:init(x, y, kill_indes)
     self.x = x
@@ -868,6 +928,10 @@ function bullet_deleter:frame()
     end
 end
 --------------------------------------------------------------
+
+
+---
+---@class THlib.bullet_killer_SP:object
 bullet_killer_SP = Class(object)
 function bullet_killer_SP:init(x, y, kill_indes)
     self.x = x
@@ -896,6 +960,10 @@ function bullet_killer_SP:frame()
     end
 end
 --------------------------------------------------------------
+
+
+---
+---@class THlib.bullet_deleter2:object
 bullet_deleter2 = Class(object)
 function bullet_deleter:init(x, y, kill_indes)
     self.x = player.x
@@ -924,16 +992,20 @@ function bullet_deleter2:frame()
         end
     end
 end
+
 --------------------------------------------------------------
 --------------------------------------------------------------
----Bomb消弹
+
+
+---
+---@class THlib.bomb_bullet_killer:object Bomb消弹
 bomb_bullet_killer = Class(object)
 function bomb_bullet_killer:init(x, y, a, b, kill_indes)
     self.x = x
     self.y = y
     self.a = a
     self.b = b
-    ---a不等于b则为矩形碰撞盒
+    --a不等于b则为矩形碰撞盒
     if a ~= b then
         self.rect = true
     end
@@ -942,7 +1014,7 @@ function bomb_bullet_killer:init(x, y, a, b, kill_indes)
     self.kill_indes = kill_indes
 end
 function bomb_bullet_killer:frame()
-    ---只存在1帧
+    --只存在1帧
     --if self.timer == 1 then
     Del(self)
     --end
