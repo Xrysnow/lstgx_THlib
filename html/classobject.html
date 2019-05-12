@@ -1,0 +1,771 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>THlib API Document: object类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">THlib API Document
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.15 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classobject.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="classobject-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">object类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;object.lua.hpp&gt;</code></p>
+<div class="dynheader">
+类 object 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classobject.png" usemap="#object_map" alt=""/>
+  <map id="object_map" name="object_map">
+<area href="class_t_hlib_1_1__bullet__shooter.html" alt="THlib::_bullet_shooter" shape="rect" coords="197,56,384,80"/>
+<area href="class_t_hlib_1_1__object.html" alt="THlib::_object" shape="rect" coords="197,112,384,136"/>
+<area href="class_t_hlib_1_1background.html" alt="THlib::background" shape="rect" coords="197,168,384,192"/>
+<area href="class_t_hlib_1_1bomb__bullet__killer.html" alt="THlib::bomb_bullet_killer" shape="rect" coords="197,224,384,248"/>
+<area href="class_t_hlib_1_1boss__cast__ef.html" alt="THlib::boss_cast_ef" shape="rect" coords="197,280,384,304"/>
+<area href="class_t_hlib_1_1boss__cast__ef__unit.html" alt="THlib::boss_cast_ef_unit" shape="rect" coords="197,336,384,360"/>
+<area href="class_t_hlib_1_1boss__death__ef.html" alt="THlib::boss_death_ef" shape="rect" coords="197,392,384,416"/>
+<area href="class_t_hlib_1_1boss__death__ef__unit.html" alt="THlib::boss_death_ef_unit" shape="rect" coords="197,448,384,472"/>
+<area href="class_t_hlib_1_1boss__ui.html" alt="THlib::boss_ui" shape="rect" coords="197,504,384,528"/>
+<area href="class_t_hlib_1_1bubble.html" alt="THlib::bubble" shape="rect" coords="197,560,384,584"/>
+<area href="class_t_hlib_1_1bubble2.html" alt="THlib::bubble2" shape="rect" coords="197,616,384,640"/>
+<area href="class_t_hlib_1_1bubble3.html" alt="THlib::bubble3" shape="rect" coords="197,672,384,696"/>
+<area href="class_t_hlib_1_1bullet.html" alt="THlib::bullet" shape="rect" coords="197,728,384,752"/>
+<area href="class_t_hlib_1_1bullet__cleaner.html" alt="THlib::bullet_cleaner" shape="rect" coords="197,784,384,808"/>
+<area href="class_t_hlib_1_1bullet__deleter.html" alt="THlib::bullet_deleter" shape="rect" coords="197,840,384,864"/>
+<area href="class_t_hlib_1_1bullet__deleter2.html" alt="THlib::bullet_deleter2" shape="rect" coords="197,896,384,920"/>
+<area href="class_t_hlib_1_1bullet__killer.html" alt="THlib::bullet_killer" shape="rect" coords="197,952,384,976"/>
+<area href="class_t_hlib_1_1bullet__killer___s_p.html" alt="THlib::bullet_killer_SP" shape="rect" coords="197,1008,384,1032"/>
+<area href="class_t_hlib_1_1_bullet_break.html" alt="THlib::BulletBreak" shape="rect" coords="197,1064,384,1088"/>
+<area href="class_t_hlib_1_1camera__setter.html" alt="THlib::camera_setter" shape="rect" coords="197,1120,384,1144"/>
+<area href="class_t_hlib_1_1deatheff.html" alt="THlib::deatheff" shape="rect" coords="197,1176,384,1200"/>
+<area href="class_t_hlib_1_1dialog__displayer.html" alt="THlib::dialog_displayer" shape="rect" coords="197,1232,384,1256"/>
+<area href="class_t_hlib_1_1diff__render__obj.html" alt="THlib::diff_render_obj" shape="rect" coords="197,1288,384,1312"/>
+<area href="class_t_hlib_1_1enemy__death__ef.html" alt="THlib::enemy_death_ef" shape="rect" coords="197,1344,384,1368"/>
+<area href="class_t_hlib_1_1enemybase.html" alt="THlib::enemybase" shape="rect" coords="197,1400,384,1424"/>
+<area href="class_t_hlib_1_1float__text.html" alt="THlib::float_text" shape="rect" coords="197,1456,384,1480"/>
+<area href="class_t_hlib_1_1grazer.html" alt="THlib::grazer" shape="rect" coords="197,1512,384,1536"/>
+<area href="class_t_hlib_1_1hinter.html" alt="THlib::hinter" shape="rect" coords="197,1568,384,1592"/>
+<area href="class_t_hlib_1_1hinter__bonus.html" alt="THlib::hinter_bonus" shape="rect" coords="197,1624,384,1648"/>
+<area href="class_t_hlib_1_1img__class.html" alt="THlib::img_class" shape="rect" coords="197,1680,384,1704"/>
+<area href="class_t_hlib_1_1item.html" alt="THlib::item" shape="rect" coords="197,1736,384,1760"/>
+<area href="class_t_hlib_1_1item__extend.html" alt="THlib::item_extend" shape="rect" coords="197,1792,384,1816"/>
+<area href="class_t_hlib_1_1item__faith__minor.html" alt="THlib::item_faith_minor" shape="rect" coords="197,1848,384,1872"/>
+<area href="class_t_hlib_1_1item__power.html" alt="THlib::item_power" shape="rect" coords="197,1904,384,1928"/>
+<area href="class_t_hlib_1_1item__power__full.html" alt="THlib::item_power_full" shape="rect" coords="197,1960,384,1984"/>
+<area href="class_t_hlib_1_1item__power__large.html" alt="THlib::item_power_large" shape="rect" coords="197,2016,384,2040"/>
+<area href="class_t_hlib_1_1kill__timer.html" alt="THlib::kill_timer" shape="rect" coords="197,2072,384,2096"/>
+<area href="class_t_hlib_1_1laser.html" alt="THlib::laser" shape="rect" coords="197,2128,384,2152"/>
+<area href="class_t_hlib_1_1laser__bent.html" alt="THlib::laser_bent" shape="rect" coords="197,2184,384,2208"/>
+<area href="class_t_hlib_1_1laser__bent2__death__ef.html" alt="THlib::laser_bent2_death_ef" shape="rect" coords="197,2240,384,2264"/>
+<area href="class_t_hlib_1_1laser__bent__death__ef.html" alt="THlib::laser_bent_death_ef" shape="rect" coords="197,2296,384,2320"/>
+<area href="class_t_hlib_1_1laser__bent__elec.html" alt="THlib::laser_bent_elec" shape="rect" coords="197,2352,384,2376"/>
+<area href="class_t_hlib_1_1marisa__bullet__ef.html" alt="THlib::marisa_bullet_ef" shape="rect" coords="197,2408,384,2432"/>
+<area href="class_t_hlib_1_1marisa__laser__hit.html" alt="THlib::marisa_laser_hit" shape="rect" coords="197,2464,384,2488"/>
+<area href="class_t_hlib_1_1marisa__missile__ef.html" alt="THlib::marisa_missile_ef" shape="rect" coords="197,2520,384,2544"/>
+<area href="class_t_hlib_1_1marisa__sp__ef.html" alt="THlib::marisa_sp_ef" shape="rect" coords="197,2576,384,2600"/>
+<area href="class_t_hlib_1_1marisa__spark.html" alt="THlib::marisa_spark" shape="rect" coords="197,2632,384,2656"/>
+<area href="class_t_hlib_1_1marisa__spark__wave.html" alt="THlib::marisa_spark_wave" shape="rect" coords="197,2688,384,2712"/>
+<area href="class_t_hlib_1_1mask__fader.html" alt="THlib::mask_fader" shape="rect" coords="197,2744,384,2768"/>
+<area href="class_t_hlib_1_1particle__img.html" alt="THlib::particle_img" shape="rect" coords="197,2800,384,2824"/>
+<area href="class_t_hlib_1_1_particle_kepper.html" alt="THlib::ParticleKepper" shape="rect" coords="197,2856,384,2880"/>
+<area href="class_t_hlib_1_1player__bullet__hide.html" alt="THlib::player_bullet_hide" shape="rect" coords="197,2912,384,2936"/>
+<area href="class_t_hlib_1_1player__bullet__straight.html" alt="THlib::player_bullet_straight" shape="rect" coords="197,2968,384,2992"/>
+<area href="class_t_hlib_1_1player__bullet__trail.html" alt="THlib::player_bullet_trail" shape="rect" coords="197,3024,384,3048"/>
+<area href="class_t_hlib_1_1player__class.html" alt="THlib::player_class" shape="rect" coords="197,3080,384,3104"/>
+<area href="class_t_hlib_1_1player__death__ef.html" alt="THlib::player_death_ef" shape="rect" coords="197,3136,384,3160"/>
+<area href="class_t_hlib_1_1player__spell__mask.html" alt="THlib::player_spell_mask" shape="rect" coords="197,3192,384,3216"/>
+<area href="class_t_hlib_1_1rebounder.html" alt="THlib::rebounder" shape="rect" coords="197,3248,384,3272"/>
+<area href="class_t_hlib_1_1reimu__bullet__blue__ef.html" alt="THlib::reimu_bullet_blue_ef" shape="rect" coords="197,3304,384,3328"/>
+<area href="class_t_hlib_1_1reimu__bullet__ef.html" alt="THlib::reimu_bullet_ef" shape="rect" coords="197,3360,384,3384"/>
+<area href="class_t_hlib_1_1reimu__bullet__orange__ef.html" alt="THlib::reimu_bullet_orange_ef" shape="rect" coords="197,3416,384,3440"/>
+<area href="class_t_hlib_1_1reimu__bullet__orange__ef2.html" alt="THlib::reimu_bullet_orange_ef2" shape="rect" coords="197,3472,384,3496"/>
+<area href="class_t_hlib_1_1reimu__bullet__red__ef.html" alt="THlib::reimu_bullet_red_ef" shape="rect" coords="197,3528,384,3552"/>
+<area href="class_t_hlib_1_1reimu__kekkai.html" alt="THlib::reimu_kekkai" shape="rect" coords="197,3584,384,3608"/>
+<area href="class_t_hlib_1_1reimu__sp__ef1.html" alt="THlib::reimu_sp_ef1" shape="rect" coords="197,3640,384,3664"/>
+<area href="class_t_hlib_1_1reimu__sp__ef2.html" alt="THlib::reimu_sp_ef2" shape="rect" coords="197,3696,384,3720"/>
+<area href="class_t_hlib_1_1_render_object.html" alt="THlib::RenderObject" shape="rect" coords="197,3752,384,3776"/>
+<area href="class_t_hlib_1_1replay__loader.html" alt="THlib::replay_loader" shape="rect" coords="197,3808,384,3832"/>
+<area href="class_t_hlib_1_1replay__saver.html" alt="THlib::replay_saver" shape="rect" coords="197,3864,384,3888"/>
+<area href="class_t_hlib_1_1sc__pr__menu.html" alt="THlib::sc_pr_menu" shape="rect" coords="197,3920,384,3944"/>
+<area href="class_t_hlib_1_1shaker__maker.html" alt="THlib::shaker_maker" shape="rect" coords="197,3976,384,4000"/>
+<area href="class_t_hlib_1_1shutter.html" alt="THlib::shutter" shape="rect" coords="197,4032,384,4056"/>
+<area href="class_t_hlib_1_1simple__image.html" alt="THlib::simple_image" shape="rect" coords="197,4088,384,4112"/>
+<area href="class_t_hlib_1_1simple__menu.html" alt="THlib::simple_menu" shape="rect" coords="197,4144,384,4168"/>
+<area href="class_t_hlib_1_1smear.html" alt="THlib::smear" shape="rect" coords="197,4200,384,4224"/>
+<area href="class_t_hlib_1_1spell__card__ef.html" alt="THlib::spell_card_ef" shape="rect" coords="197,4256,384,4280"/>
+<area href="class_t_hlib_1_1tasker.html" alt="THlib::tasker" shape="rect" coords="197,4312,384,4336"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a5a3d94f25eeb70f70d9d6a4ee1427d6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfunction.html">function</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a5a3d94f25eeb70f70d9d6a4ee1427d6e">colli</a> ()</td></tr>
+<tr class="separator:a5a3d94f25eeb70f70d9d6a4ee1427d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3da5729c28c4d4a9a4e4bd8ace99be0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfunction.html">function</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#ac3da5729c28c4d4a9a4e4bd8ace99be0">del</a> ()</td></tr>
+<tr class="separator:ac3da5729c28c4d4a9a4e4bd8ace99be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60ded723bee5ff1fbb6ff663c35a2327"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfunction.html">function</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a60ded723bee5ff1fbb6ff663c35a2327">frame</a> ()</td></tr>
+<tr class="separator:a60ded723bee5ff1fbb6ff663c35a2327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8dc73726eb0578fe44fb98cd2319445"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfunction.html">function</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#af8dc73726eb0578fe44fb98cd2319445">init</a> ()</td></tr>
+<tr class="separator:af8dc73726eb0578fe44fb98cd2319445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9cdb904cb9e9ed6359f8696013b8bb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfunction.html">function</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#aa9cdb904cb9e9ed6359f8696013b8bb6">kill</a> ()</td></tr>
+<tr class="separator:aa9cdb904cb9e9ed6359f8696013b8bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a319100fa3eab46037af43d8d7897e4e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classfunction.html">function</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a319100fa3eab46037af43d8d7897e4e2">render</a> ()</td></tr>
+<tr class="separator:a319100fa3eab46037af43d8d7897e4e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:aba38b92ae312b2f3ba326f27ed0f38de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#aba38b92ae312b2f3ba326f27ed0f38de">a</a></td></tr>
+<tr class="separator:aba38b92ae312b2f3ba326f27ed0f38de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad311f783e31babe05ad2e78986b75765"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#ad311f783e31babe05ad2e78986b75765">ani</a></td></tr>
+<tr class="separator:ad311f783e31babe05ad2e78986b75765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5054ddc3b02e1e51798d22de73a23a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#ac5054ddc3b02e1e51798d22de73a23a9">ax</a></td></tr>
+<tr class="separator:ac5054ddc3b02e1e51798d22de73a23a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38ad88bea41b91c8ab4ff70b2ed99c47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a38ad88bea41b91c8ab4ff70b2ed99c47">ay</a></td></tr>
+<tr class="separator:a38ad88bea41b91c8ab4ff70b2ed99c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1179d8132e225329909090623f75432f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a1179d8132e225329909090623f75432f">b</a></td></tr>
+<tr class="separator:a1179d8132e225329909090623f75432f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbda2a8c7e9c7f0e85da422276475d81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classboolean.html">boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#abbda2a8c7e9c7f0e85da422276475d81">bound</a></td></tr>
+<tr class="separator:abbda2a8c7e9c7f0e85da422276475d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23228aaa27047917c376277897125fc5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classobject.html">object</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a23228aaa27047917c376277897125fc5">class</a></td></tr>
+<tr class="separator:a23228aaa27047917c376277897125fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad925d5a4aaa363e5bacbab4a6453290"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classboolean.html">boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#aad925d5a4aaa363e5bacbab4a6453290">colli</a></td></tr>
+<tr class="separator:aad925d5a4aaa363e5bacbab4a6453290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8196b87105a6359f6f9f5689525db958"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a8196b87105a6359f6f9f5689525db958">dx</a></td></tr>
+<tr class="separator:a8196b87105a6359f6f9f5689525db958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89b93d39f4fa51eb46a263b18b8bfb76"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a89b93d39f4fa51eb46a263b18b8bfb76">dy</a></td></tr>
+<tr class="separator:a89b93d39f4fa51eb46a263b18b8bfb76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfef0d01674a3d0c9ed8571f63756998"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#adfef0d01674a3d0c9ed8571f63756998">group</a></td></tr>
+<tr class="separator:adfef0d01674a3d0c9ed8571f63756998"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bbd1ed588b505ec7a93ed68fadfde30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classboolean.html">boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a5bbd1ed588b505ec7a93ed68fadfde30">hide</a></td></tr>
+<tr class="separator:a5bbd1ed588b505ec7a93ed68fadfde30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdd035333d80c9050ec049d60fdeff00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#acdd035333d80c9050ec049d60fdeff00">hscale</a></td></tr>
+<tr class="separator:acdd035333d80c9050ec049d60fdeff00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab69c3c647c4bde5ab82e3a500ab699ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstring.html">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#ab69c3c647c4bde5ab82e3a500ab699ac">img</a></td></tr>
+<tr class="separator:ab69c3c647c4bde5ab82e3a500ab699ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a5b09c2c560318e797f95da8eed8365"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a0a5b09c2c560318e797f95da8eed8365">layer</a></td></tr>
+<tr class="separator:a0a5b09c2c560318e797f95da8eed8365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0453375e64fb28931d787e95afaac6e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classboolean.html">boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a0453375e64fb28931d787e95afaac6e9">navi</a></td></tr>
+<tr class="separator:a0453375e64fb28931d787e95afaac6e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a646453f19c5ab21df02afe0670f3809c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a646453f19c5ab21df02afe0670f3809c">omiga</a></td></tr>
+<tr class="separator:a646453f19c5ab21df02afe0670f3809c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a041029a8caf67a9956ceb0ac760dfeac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classboolean.html">boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a041029a8caf67a9956ceb0ac760dfeac">rect</a></td></tr>
+<tr class="separator:a041029a8caf67a9956ceb0ac760dfeac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add2e31d15455a7d8285c748c9fe71b28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#add2e31d15455a7d8285c748c9fe71b28">rot</a></td></tr>
+<tr class="separator:add2e31d15455a7d8285c748c9fe71b28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4d38e7365d935f2a5f1403eec29127e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstring.html">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#ab4d38e7365d935f2a5f1403eec29127e">status</a></td></tr>
+<tr class="separator:ab4d38e7365d935f2a5f1403eec29127e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac916d0f58679c60c122be780aeb0eb2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#ac916d0f58679c60c122be780aeb0eb2b">timer</a></td></tr>
+<tr class="separator:ac916d0f58679c60c122be780aeb0eb2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74f495f7da3e8babd683d87c3b6262f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a74f495f7da3e8babd683d87c3b6262f1">vscale</a></td></tr>
+<tr class="separator:a74f495f7da3e8babd683d87c3b6262f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeebf09e750e703c57e292832af095bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#aaeebf09e750e703c57e292832af095bc">vx</a></td></tr>
+<tr class="separator:aaeebf09e750e703c57e292832af095bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a913091ac523bfd394fbeedec860bcad5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a913091ac523bfd394fbeedec860bcad5">vy</a></td></tr>
+<tr class="separator:a913091ac523bfd394fbeedec860bcad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a117e8fdc0c12b911e0b4d7cf0e99c897"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#a117e8fdc0c12b911e0b4d7cf0e99c897">x</a></td></tr>
+<tr class="separator:a117e8fdc0c12b911e0b4d7cf0e99c897"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae14c17bdf80bbde4381c61ddf63a7d98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnumber.html">number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classobject.html#ae14c17bdf80bbde4381c61ddf63a7d98">y</a></td></tr>
+<tr class="separator:ae14c17bdf80bbde4381c61ddf63a7d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>所有游戏对象类的基类 </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a5a3d94f25eeb70f70d9d6a4ee1427d6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a3d94f25eeb70f70d9d6a4ee1427d6e">&#9670;&nbsp;</a></span>colli()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classfunction.html">function</a> colli </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>碰撞函数 </p>
+
+</div>
+</div>
+<a id="ac3da5729c28c4d4a9a4e4bd8ace99be0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3da5729c28c4d4a9a4e4bd8ace99be0">&#9670;&nbsp;</a></span>del()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classfunction.html">function</a> del </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>删除函数 </p>
+
+</div>
+</div>
+<a id="a60ded723bee5ff1fbb6ff663c35a2327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60ded723bee5ff1fbb6ff663c35a2327">&#9670;&nbsp;</a></span>frame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classfunction.html">function</a> frame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>帧函数 </p>
+
+</div>
+</div>
+<a id="af8dc73726eb0578fe44fb98cd2319445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8dc73726eb0578fe44fb98cd2319445">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classfunction.html">function</a> init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>初始化函数 </p>
+
+</div>
+</div>
+<a id="aa9cdb904cb9e9ed6359f8696013b8bb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9cdb904cb9e9ed6359f8696013b8bb6">&#9670;&nbsp;</a></span>kill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classfunction.html">function</a> kill </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>消亡函数 </p>
+
+</div>
+</div>
+<a id="a319100fa3eab46037af43d8d7897e4e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a319100fa3eab46037af43d8d7897e4e2">&#9670;&nbsp;</a></span>render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classfunction.html">function</a> render </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>渲染函数 </p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="aba38b92ae312b2f3ba326f27ed0f38de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba38b92ae312b2f3ba326f27ed0f38de">&#9670;&nbsp;</a></span>a</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> a</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>碰撞盒宽 </p>
+
+</div>
+</div>
+<a id="ad311f783e31babe05ad2e78986b75765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad311f783e31babe05ad2e78986b75765">&#9670;&nbsp;</a></span>ani</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> ani</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>只读 动画计数器 </p>
+
+</div>
+</div>
+<a id="ac5054ddc3b02e1e51798d22de73a23a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5054ddc3b02e1e51798d22de73a23a9">&#9670;&nbsp;</a></span>ax</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> ax</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>x方向加速度 </p>
+
+</div>
+</div>
+<a id="a38ad88bea41b91c8ab4ff70b2ed99c47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38ad88bea41b91c8ab4ff70b2ed99c47">&#9670;&nbsp;</a></span>ay</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> ay</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>y方向加速度 </p>
+
+</div>
+</div>
+<a id="a1179d8132e225329909090623f75432f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1179d8132e225329909090623f75432f">&#9670;&nbsp;</a></span>b</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> b</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>碰撞盒高 </p>
+
+</div>
+</div>
+<a id="abbda2a8c7e9c7f0e85da422276475d81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbda2a8c7e9c7f0e85da422276475d81">&#9670;&nbsp;</a></span>bound</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classboolean.html">boolean</a> bound</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>是否越界销毁 </p>
+
+</div>
+</div>
+<a id="a23228aaa27047917c376277897125fc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23228aaa27047917c376277897125fc5">&#9670;&nbsp;</a></span>class</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classobject.html">object</a> class</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>对象所属的类 </p>
+
+</div>
+</div>
+<a id="aad925d5a4aaa363e5bacbab4a6453290"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad925d5a4aaa363e5bacbab4a6453290">&#9670;&nbsp;</a></span>colli</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classboolean.html">boolean</a> colli</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>是否允许碰撞 </p>
+
+</div>
+</div>
+<a id="a8196b87105a6359f6f9f5689525db958"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8196b87105a6359f6f9f5689525db958">&#9670;&nbsp;</a></span>dx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> dx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>只读 距离上一次更新的x坐标增量 </p>
+
+</div>
+</div>
+<a id="a89b93d39f4fa51eb46a263b18b8bfb76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89b93d39f4fa51eb46a263b18b8bfb76">&#9670;&nbsp;</a></span>dy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> dy</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>只读 距离上一次更新的y坐标增量 </p>
+
+</div>
+</div>
+<a id="adfef0d01674a3d0c9ed8571f63756998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfef0d01674a3d0c9ed8571f63756998">&#9670;&nbsp;</a></span>group</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> group</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>碰撞组 </p>
+
+</div>
+</div>
+<a id="a5bbd1ed588b505ec7a93ed68fadfde30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bbd1ed588b505ec7a93ed68fadfde30">&#9670;&nbsp;</a></span>hide</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classboolean.html">boolean</a> hide</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>是否隐藏 </p>
+
+</div>
+</div>
+<a id="acdd035333d80c9050ec049d60fdeff00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdd035333d80c9050ec049d60fdeff00">&#9670;&nbsp;</a></span>hscale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> hscale</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>横向缩放 </p>
+
+</div>
+</div>
+<a id="ab69c3c647c4bde5ab82e3a500ab699ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab69c3c647c4bde5ab82e3a500ab699ac">&#9670;&nbsp;</a></span>img</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstring.html">string</a> img</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>默认渲染时，图像/动画/粒子的名称 </p>
+
+</div>
+</div>
+<a id="a0a5b09c2c560318e797f95da8eed8365"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a5b09c2c560318e797f95da8eed8365">&#9670;&nbsp;</a></span>layer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> layer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>渲染层级 </p>
+
+</div>
+</div>
+<a id="a0453375e64fb28931d787e95afaac6e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0453375e64fb28931d787e95afaac6e9">&#9670;&nbsp;</a></span>navi</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classboolean.html">boolean</a> navi</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>是否自动更新朝向 </p>
+
+</div>
+</div>
+<a id="a646453f19c5ab21df02afe0670f3809c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a646453f19c5ab21df02afe0670f3809c">&#9670;&nbsp;</a></span>omiga</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> omiga</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>角度增量 </p>
+
+</div>
+</div>
+<a id="a041029a8caf67a9956ceb0ac760dfeac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a041029a8caf67a9956ceb0ac760dfeac">&#9670;&nbsp;</a></span>rect</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classboolean.html">boolean</a> rect</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>是否为矩形碰撞盒 </p>
+
+</div>
+</div>
+<a id="add2e31d15455a7d8285c748c9fe71b28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add2e31d15455a7d8285c748c9fe71b28">&#9670;&nbsp;</a></span>rot</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> rot</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>角度 </p>
+
+</div>
+</div>
+<a id="ab4d38e7365d935f2a5f1403eec29127e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4d38e7365d935f2a5f1403eec29127e">&#9670;&nbsp;</a></span>status</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstring.html">string</a> status</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>对象状态，del/kill/normal </p>
+
+</div>
+</div>
+<a id="ac916d0f58679c60c122be780aeb0eb2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac916d0f58679c60c122be780aeb0eb2b">&#9670;&nbsp;</a></span>timer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> timer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>计数器 </p>
+
+</div>
+</div>
+<a id="a74f495f7da3e8babd683d87c3b6262f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74f495f7da3e8babd683d87c3b6262f1">&#9670;&nbsp;</a></span>vscale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> vscale</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>纵向缩放 </p>
+
+</div>
+</div>
+<a id="aaeebf09e750e703c57e292832af095bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeebf09e750e703c57e292832af095bc">&#9670;&nbsp;</a></span>vx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> vx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>x方向速度 </p>
+
+</div>
+</div>
+<a id="a913091ac523bfd394fbeedec860bcad5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a913091ac523bfd394fbeedec860bcad5">&#9670;&nbsp;</a></span>vy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> vy</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>y方向速度 </p>
+
+</div>
+</div>
+<a id="a117e8fdc0c12b911e0b4d7cf0e99c897"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a117e8fdc0c12b911e0b4d7cf0e99c897">&#9670;&nbsp;</a></span>x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>x坐标 </p>
+
+</div>
+</div>
+<a id="ae14c17bdf80bbde4381c61ddf63a7d98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae14c17bdf80bbde4381c61ddf63a7d98">&#9670;&nbsp;</a></span>y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classnumber.html">number</a> y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>y坐标 </p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>lstg/<a class="el" href="object_8lua_8hpp.html">object.lua.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classobject.html">object</a></li>
+    <li class="footer">生成于 2019年 五月 12日 星期日 17:05:59 , 为 THlib API Document使用 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
+</body>
+</html>
