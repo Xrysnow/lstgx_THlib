@@ -704,11 +704,6 @@ function smear:kill()
     end)
 end
 
-Include("THlib/Queue.lua")
-Include("THlib/Heap.lua")
-Include("THlib/List.lua")
-Include("THlib/Array.lua")
-Include("THlib/Class.lua")
 Include("THlib/BulletEx.lua")
 
 ---@class THlib.RenderObject:object
