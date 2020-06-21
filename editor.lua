@@ -473,7 +473,7 @@ end
 
 _sc_table = {}
 
-Include 'THlib\\Archimedes.lua'
+Include("THlib/bullet/Archimedes.lua")
 
 ---@class THlib.archiexpand:THlib.bullet
 archiexpand = Class(bullet)
@@ -704,7 +704,7 @@ function smear:kill()
     end)
 end
 
-Include("THlib/BulletEx.lua")
+Include("THlib/bullet/BulletEx.lua")
 
 ---@class THlib.RenderObject:object
 RenderObject = Class(object)
