@@ -608,9 +608,7 @@ end
 player_list = {
     { 'Hakurei Reimu', 'reimu_player', 'Reimu' },
     { 'Kirisame Marisa', 'marisa_player', 'Marisa' },
-    { 'Shalimar', 'shababa_player', 'Shalimar' },
 }
 
 Include 'THlib/player/reimu/reimu.lua'
 Include 'THlib/player/marisa/marisa.lua'
-Include 'THlib/player/shababa/shababa_player.lua'

@@ -109,5 +109,5 @@ local sounds = {
     'opshow' }
 --载入列表中的音效
 for _, v in pairs(sounds) do
-    LoadSound(v, 'THlib\\se\\se_' .. v .. '.wav')
+    LoadSound(v, 'THlib/se/se_' .. v .. '.wav')
 end
