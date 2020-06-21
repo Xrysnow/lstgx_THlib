@@ -26,9 +26,9 @@ end
 
 local RENDER_BUFFER_NAME = "_boss_distortion_render_buffer"
 local WARP_EFFECT_NAME = "boss_distortion"
-LoadFX(WARP_EFFECT_NAME, 'shader/boss_distortion.fx')
+LoadFX(WARP_EFFECT_NAME, "shader/boss_distortion.fx")
 CreateRenderTarget(RENDER_BUFFER_NAME)
-SetShaderUniform('boss_distortion', {
+SetShaderUniform("boss_distortion", {
     centerX   = 100.0,
     centerY   = 100.0,
     size      = 50.0,
@@ -249,4 +249,6 @@ function camera_setter:render()
     SetViewMode 'world'
 end
 
-Include 'THlib/background/background_addon.lua'
+Include("THlib/background/spellcard.lua")
+Include("THlib/background/temple.lua")
+Include("THlib/background/background_addon.lua")

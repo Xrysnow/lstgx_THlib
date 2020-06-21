@@ -1,4 +1,4 @@
-local StopWatch = StopWatch
+local StopWatch
 
 if StopWatch == nil then
     ---高精度计时器
