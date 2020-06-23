@@ -250,5 +250,4 @@ function camera_setter:render()
 end
 
 Include("THlib/background/spellcard.lua")
-Include("THlib/background/temple.lua")
 Include("THlib/background/background_addon.lua")
