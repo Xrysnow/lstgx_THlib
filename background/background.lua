@@ -26,9 +26,9 @@ end
 
 local RENDER_BUFFER_NAME = "_boss_distortion_render_buffer"
 local WARP_EFFECT_NAME = "boss_distortion"
-LoadFX(WARP_EFFECT_NAME, 'shader/boss_distortion.fx')
+LoadFX(WARP_EFFECT_NAME, "shader/boss_distortion.fx")
 CreateRenderTarget(RENDER_BUFFER_NAME)
-SetShaderUniform('boss_distortion', {
+SetShaderUniform("boss_distortion", {
     centerX   = 100.0,
     centerY   = 100.0,
     size      = 50.0,
@@ -249,35 +249,5 @@ function camera_setter:render()
     SetViewMode 'world'
 end
 
---[[
-Include 'THlib/background/ball/ball.lua'
-Include 'THlib/background/bamboo/bamboo.lua'
-Include 'THlib/background/bamboo2/bamboo2.lua'
-Include 'THlib/background/magic_forest/magic_forest.lua'
-Include 'THlib/background/temple/temple.lua'
-Include 'THlib/background/temple2/temple2.lua'
-Include 'THlib/background/spellcard/spellcard.lua'
-Include 'THlib/background/magic_forest_fast/magic_forest_fast.lua'
-Include 'THlib/background/skyandcloud/skyandcloud.lua'
-Include 'THlib/background/redsky/redsky.lua'
-Include 'THlib/background/temple_menu/menu_temple.lua'
-Include 'THlib/background/picture/picture.lua'
-Include 'THlib/background/starlight/starlight.lua'
-Include 'THlib/background/river/river.lua'
-Include 'THlib/background/gensokyosora/gensokyosora.lua'
-Include 'THlib/background/icepool/icepool.lua'
-Include 'THlib/background/hongmoguanB/hongmoguanB.lua'
-Include 'THlib/background/lake/lake.lua'
-Include 'THlib/background/stage3bg/stage3bg.lua'
-Include 'THlib/background/stage4bg/stage4bg.lua'
-Include 'THlib/background/cube/cube.lua'
-Include 'THlib/background/gzz_stage04bg/gzz_stage04bg.lua'
-Include 'THlib/background/gzz_stg6bg/gzz_stg6bg.lua'
-Include 'THlib/background/world/world.lua'
-Include 'THlib/background/woods/woods.lua'
-Include 'THlib/background/le03_5/le03_5.lua'
-Include 'THlib/background/galaxy/galaxy.lua'
-Include 'THlib/background/tkz_stage3/stage3bg.lua'
-]]
-
-Include 'THlib/background/background_addon.lua'
+Include("THlib/background/spellcard.lua")
+Include("THlib/background/background_addon.lua")
